@@ -44,7 +44,7 @@ client.on("message", async message => {
     });
     }
     
-  if (tagname === 'globalsnotworking') {
+  else if (tagname === 'globalsnotworking') {
    message.channel.send({embed: {
         color: 16562432,
         description: "\n",
@@ -61,7 +61,7 @@ client.on("message", async message => {
     }); 
   }
     
- if (tagname === 'noglobalshere') {
+ else if (tagname === 'noglobalshere') {
    message.channel.send({embed: {
         color: 16562432,
         description: "\n",
@@ -77,7 +77,7 @@ client.on("message", async message => {
     });
  }
     
- if (tagname === 'pings' || tagname === 'mentions') {
+ else if (tagname === 'pings' || tagname === 'mentions') {
    message.channel.send({embed: {
         color: 16562432,
         description: "\n",
@@ -93,7 +93,7 @@ client.on("message", async message => {
     });
  }
     
-  if (tagname === 'expiredinvite') {
+  else if (tagname === 'expiredinvite') {
    message.channel.send({embed: {
         color: 16562432,
         description: "\n",
@@ -109,7 +109,7 @@ client.on("message", async message => {
     });
  }
     
- if (tagname === 'mixeremotes') {
+ else if (tagname === 'mixeremotes') {
    message.channel.send({embed: {
         color: 16562432,
         description: "\n",
@@ -123,7 +123,7 @@ client.on("message", async message => {
         }
       }
     });
- }
+ } else {message.reply(`${tagname} is not a valid tag! Run '${prefix}tag all' to get all the tags.`)}
   }
 });
 

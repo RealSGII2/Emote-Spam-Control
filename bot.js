@@ -39,7 +39,10 @@ client.on("message", async message => {
     
   if(message.author.bot) return;
   if(message.content.indexOf(prefix) !== 0) return;
-  if(!message.channel.id === '357406786736881677' || !message.channel.id === '493081572422189084') return;
+  if(!message.channel.id === '357406786736881677' || !message.channel.id) return;
+  const allowedids ['200661467152777216', '193979517470113792', '258706134850863106000'];
+    
+  if (allowedids.includes(message.author.id)) {
   
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()
@@ -90,6 +93,7 @@ client.on("message", async message => {
   message.channel.send({embed});
  
   }
+  } else {message.reply("you can't use that command!")}
   
   if (command === 't' || command === 'tag') {
     const tagname = args.shift()

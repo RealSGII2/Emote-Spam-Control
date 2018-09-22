@@ -41,13 +41,11 @@ client.on("message", async message => {
   .setTitle("Stats")
   .setAuthor("GEH Helper", client.user.avatarURL)
   .setColor(3447003)
-  .setDescription("GEH Helper is a helper bot for Global Emote Hunters!")
   .setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL)
   .setThumbnail(avataru.avatarURL)
   .setTimestamp()
   .addField("Owner", "Omnidroid v10 • SGII2#2990", true)
   .addField("Uptime", uptime, true)
-  .addBlankField(false)
   .addField("Users", client.users.size, true)
   .addField("Servers", client.guilds.size, true)
 

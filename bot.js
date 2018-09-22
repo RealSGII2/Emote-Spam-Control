@@ -22,7 +22,7 @@ client.on("message", async message => {
   if (cont === 'a') {
       if (message.member.roles.has(357371636539981824) || !message.member.roles.has(357371681985134592) || !message.member.roles.has(474073433202884618) || !message.member.roles.has(357610506946609153) || !message.member.roles.has(459102161310318632)) {
           const warning = await message.reply("you're sending " + cont + " a bit too quickly! Messages weren't deleted because you can bypass.");
-          setTimeout(warning.delete(), dwa)
+          setTimeout(function() {warning.delete()}, dwa)
       } else {
           message.reply("you're sending emote only messages too quickly!")
       }

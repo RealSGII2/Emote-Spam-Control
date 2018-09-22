@@ -27,7 +27,11 @@ client.on("message", async message => {
   }
   
   if (command === 'stats' || command === 'status') {
-   const omni = client.fetchUser(258706134850863106);
+   let avatar = 'nil'
+   message.guild.fetchMember(258706134850863106)
+      .then(member => {
+        avatar = member.avatarURL
+     })
    
    let totalSeconds = (client.uptime / 1000);
    let hours = Math.floor(totalSeconds / 3600);
@@ -43,7 +47,7 @@ client.on("message", async message => {
   .setColor(3447003)
   .setDescription("GEH Helper is a helper bot for Global Emote Hunters!")
   .setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL)
-  .setThumbnail(omni.avatarURL)
+  .setThumbnail(avatar)
   .setTimestamp()
   .addField("Owner", "Omnidroid v10 • SGII2#2990", true)
   .addField("Uptime", uptime, true)

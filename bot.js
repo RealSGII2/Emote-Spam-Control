@@ -7,6 +7,7 @@ EOMIDs[1] = new Array(258706134850863106, 1)
 
 // Settings
 const limit = 3; // Limit for emote only messages
+let allbypass = false;
 let dwa = 4000; // Milliseconds to wait before deleting the warning
 const allowedroles = ['357371636539981824', '357371681985134592', '474073433202884618', '357610506946609153', '459102161310318632']; // IDs of the roles that are allowed to bypass
 let prefix = "$";
@@ -20,7 +21,7 @@ client.on("ready", () => {
 client.on("message", async message => {
   const cont = message.content;
   if (cont === 'a') {
-      if (message.member.roles.has(357371636539981824) || !message.member.roles.has(357371681985134592) || !message.member.roles.has(474073433202884618) || !message.member.roles.has(357610506946609153) || !message.member.roles.has(459102161310318632)) {
+      if (message.member.roles.has(357371636539981824) || message.member.roles.has(357371681985134592) || message.member.roles.has(474073433202884618) || message.member.roles.has(357610506946609153) || message.member.roles.has(459102161310318632) || allbypass === true) {
           const warning = await message.reply("you're sending " + cont + " a bit too quickly! Messages weren't deleted because you can bypass.");
           setTimeout(function() {warning.delete()}, dwa)
       } else {
@@ -40,6 +41,11 @@ client.on("message", async message => {
   
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()
+  
+  if (command === 'allowbypass') {
+      const setting = args.shift();
+      if (setting === 'true' || setting === 'false') {allbypass = setting} else {message.reply("the settings must either be: `['true', 'false']`!")}
+  }
   
   if (command === 'setwarningdel') {
       const time = args.shift();

@@ -7,7 +7,7 @@ EOMIDs[1] = new Array(258706134850863106, 1)
 
 // Settings
 const limit = 3; // Limit for emote only messages
-const dwa = 70000; // Milliseconds to wait before deleting the warning
+let dwa = 70000; // Milliseconds to wait before deleting the warning
 const allowedroles = ['357371636539981824', '357371681985134592', '474073433202884618', '357610506946609153', '459102161310318632']; // IDs of the roles that are allowed to bypass
 let prefix = "$";
 

@@ -17,18 +17,12 @@ client.on("ready", () => {
 });
 
 client.on("message", async message => {
-  const cont = message.content
-  message.channel.send(EOMIDs[258706134850863106][2].toString())
+  const cont = message.content;
   if (cont === 'a') {
-      if (EOMIDs[message.author.ID][2]) {
-          const newnum = EOMIDs[message.author.ID] + 1
-          EOMIDs[message.author.ID][2] = newnum
-      }
-  }
-    
-  if (EOMIDs[message.author.ID]) {
-      if (EOMIDs[message.author.ID][2] === 3) {
-          message.reply("Way too many emotes!");
+      if (message.member.roles.has(357371636539981824) || !message.member.roles.has(357371681985134592) || !message.member.roles.has(474073433202884618) || !message.member.roles.has(357610506946609153) || !message.member.roles.has(459102161310318632)) {
+          message.reply("you're sending " + cont + " a bit too quickly. But you may bypass.")
+      } else {
+          message.reply("you're sending emote only messages too quickly!")
       }
   }
     

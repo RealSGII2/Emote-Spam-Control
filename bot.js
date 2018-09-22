@@ -21,6 +21,35 @@ client.on("message", async message => {
     m.edit(`Pong! ${Math.round(client.ping)}ms`); 
   }
   
+  if (command === 'stats' || command === 'status') {
+   const omni = client.fetchUser(258706134850863106);
+   
+   let totalSeconds = (client.uptime / 1000);
+   let hours = Math.floor(totalSeconds / 3600);
+   totalSeconds %= 3600;
+   let minutes = Math.floor(totalSeconds / 60);
+   let seconds = totalSeconds % 60;
+   
+   let uptime = `${hours} hours, ${minutes} minutes and ${seconds} seconds`;
+   
+   const embed = new Discord.RichEmbed()
+  .setTitle("This is your title, it can hold 256 characters")
+  .setAuthor("Author Name", "https://i.imgur.com/lm8s41J.png")
+  .setColor(3447003)
+  .setDescription("GEH Helper is a helper bot for Global Emote Hunters!")
+  .setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL)
+  .setThumbnail(omni.avatarURL)
+  .setTimestamp()
+  .addField("Owner", "Omnidroid v10 • SGII2#2990", true)
+  .addField("Uptime", uptime, true)
+  .addBlankField(true)
+  .addField("Users", client.users.size, true)
+  .addField("Servers", client.guilds.size, true)
+
+  message.channel.send({embed});
+ 
+  }
+  
   if (command === 't' || command === 'tag') {
     const tagname = args.shift()
     if (tagname === 'all') {

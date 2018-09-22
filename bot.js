@@ -33,7 +33,7 @@ client.on("message", async message => {
    let uptime = `${hours} hours, ${minutes} minutes and ${seconds} seconds`;
    
    const embed = new Discord.RichEmbed()
-  .setTitle("This is your title, it can hold 256 characters")
+  .setTitle("Stats")
   .setAuthor("Author Name", "https://i.imgur.com/lm8s41J.png")
   .setColor(3447003)
   .setDescription("GEH Helper is a helper bot for Global Emote Hunters!")

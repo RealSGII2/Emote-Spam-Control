@@ -25,6 +25,12 @@ client.on("message", async message => {
       }
   }
     
+  if (EOMIDs[message.author.ID]) {
+      if (EOMIDs[message.author.ID] === 3) {
+          message.reply("Way too many emotes!");
+      }
+  }
+    
     
     
     

@@ -160,4 +160,4 @@ client.on("message", async message => {
 
 
 // Log in the bot
-client.user.login(process.env.token)
+client.login(process.env.token)

@@ -43,7 +43,7 @@ client.on("message", async message => {
   
   if (command === 'setwarningdel') {
       const time = args.shift();
-      if (isNaN(time)) {
+      if (!isNaN(time)) {
           dwa = time;
           message.reply(`the warning message for emote spam will now be deleted after **${time}** seconds!`);
       } else {

@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var EOMIDs = new Array();
-EOMIDs[258706134850863106] = new Array(1)
+EOMIDs[1] = new Array(258706134850863106, 1)
 
 
 // Settings
@@ -18,16 +18,16 @@ client.on("ready", () => {
 
 client.on("message", async message => {
   const cont = message.content
-  message.channel.send(EOMIDs[258706134850863106].toString())
+  message.channel.send(EOMIDs[258706134850863106][2].toString())
   if (cont === 'a') {
-      if (EOMIDs[message.author.ID]) {
+      if (EOMIDs[message.author.ID][2]) {
           const newnum = EOMIDs[message.author.ID] + 1
-          EOMIDs[message.author.ID] = newnum
+          EOMIDs[message.author.ID][2] = newnum
       }
   }
     
   if (EOMIDs[message.author.ID]) {
-      if (EOMIDs[message.author.ID] === 3) {
+      if (EOMIDs[message.author.ID][2] === 3) {
           message.reply("Way too many emotes!");
       }
   }

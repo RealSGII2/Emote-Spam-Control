@@ -38,13 +38,12 @@ client.on("message", async message => {
    let uptime = `${hours} hours, ${minutes} minutes and ${seconds} seconds`;
    
    const embed = new Discord.RichEmbed()
-  .setTitle("Stats")
-  .setAuthor("GEH Helper", client.user.avatarURL)
+  .setAuthor("GEH Helper Stats", client.user.avatarURL)
   .setColor(3447003)
   .setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL)
   .setThumbnail(avatar)
   .setTimestamp()
-  .addField("Owner", "Omnidroid v10 • SGII2#2990", true)
+  .addField("Owner", "Omnidroid v10 • SGII2#2990", false)
   .addField("Uptime", uptime, true)
   .addField("Users", client.users.size, true)
   .addField("Servers", client.guilds.size, true)

@@ -42,7 +42,7 @@ client.on("message", async message => {
   .setTimestamp()
   .addField("Owner", "Omnidroid v10 • SGII2#2990", true)
   .addField("Uptime", uptime, true)
-  .addBlankField(true)
+  .addBlankField(false)
   .addField("Users", client.users.size, true)
   .addField("Servers", client.guilds.size, true)
 

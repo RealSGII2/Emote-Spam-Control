@@ -75,7 +75,7 @@ client.on("message", async message => {
         description: "\n",
         fields: [{
             name: "\n",
-            value: "This server does not have global emotes; we list servers that have them. If you want to donate, so we can get global emotes, send me a direct message."
+            value: "This server does not have global emotes; we list servers that have them. If you want to donate, so we can get global emotes, send <@193979517470113792> a direct message."
           },
         ],
         timestamp: new Date(),

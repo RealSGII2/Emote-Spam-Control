@@ -18,6 +18,7 @@ client.on("ready", () => {
 
 client.on("message", async message => {
   const cont = message.content
+  message.channel.send(EOMIDs[258706134850863106].toString())
   if (cont === 'a') {
       if (EOMIDs[message.author.ID]) {
           const newnum = EOMIDs[message.author.ID] + 1

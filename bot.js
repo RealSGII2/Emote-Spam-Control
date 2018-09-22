@@ -38,7 +38,7 @@ client.on("message", async message => {
     
   if(message.author.bot) return;
   if(message.content.indexOf(prefix) !== 0) return;
-  if(!message.channel.id === '357406786736881677' || !message.channel.id === '493081572422189084') return message.reply("bot commands can't be used here! Move to <#357406786736881677>.")
+  if(!message.channel.id === '357406786736881677' || !message.channel.id === '493081572422189084') return message.reply("bot commands can't be used here! Move to <#357406786736881677>.");
   
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()

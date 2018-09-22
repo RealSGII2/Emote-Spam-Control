@@ -10,7 +10,7 @@ let prefix = "!";
 
 // Actual coding for the bot
 client.on("ready", () => {
-    client.user.setActivity({game: {name: `with ${client.users.size} users!`, type: 0}});
+    client.user.setGame(`with ${client.users.size} users!`);
     console.log("GEH Helper has started!")
 });
 

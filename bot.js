@@ -41,6 +41,16 @@ client.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()
   
+  if (command === 'setwarningdel') {
+      const time = args.shift();
+      if (isNaN(time)) {
+          dwa = time;
+          message.reply(`the warning message for emote spam will now be deleted after **${time}** seconds!`);
+      } else {
+          message.reply(`the option can only be set to numbers!`)
+      }
+  }
+  
   if (command === 'ping') {
    const m = await message.channel.send("Pinging...");
     m.edit(`Pong! ${Math.round(client.ping)}ms`); 

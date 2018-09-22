@@ -34,7 +34,7 @@ client.on("message", async message => {
    
    const embed = new Discord.RichEmbed()
   .setTitle("Stats")
-  .setAuthor("Author Name", "https://i.imgur.com/lm8s41J.png")
+  .setAuthor("GEH Helper", client.user.avatarURL)
   .setColor(3447003)
   .setDescription("GEH Helper is a helper bot for Global Emote Hunters!")
   .setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL)

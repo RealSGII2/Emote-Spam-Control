@@ -27,7 +27,7 @@ client.on("message", async message => {
   }
   
   if (command === 'stats' || command === 'status') {
-   let avataru = client.users.get(258706134850863106);
+   let avatar = client.users.get(258706134850863106).avatarURL;
    
    let totalSeconds = (client.uptime / 1000);
    let hours = Math.floor(totalSeconds / 3600);
@@ -42,7 +42,7 @@ client.on("message", async message => {
   .setAuthor("GEH Helper", client.user.avatarURL)
   .setColor(3447003)
   .setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL)
-  .setThumbnail(avataru.avatarURL)
+  .setThumbnail(avatar)
   .setTimestamp()
   .addField("Owner", "Omnidroid v10 • SGII2#2990", true)
   .addField("Uptime", uptime, true)

@@ -42,10 +42,12 @@ client.on("message", async message => {
   if(!message.channel.id === '357406786736881677' || !message.channel.id) return;
   const allowedids = ['200661467152777216', '193979517470113792', '258706134850863106000'];
     
-  if (allowedids.includes(message.author.id)) {
+  
   
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()
+  
+  if (allowedids.includes(message.author.id)) {
   
   if (command === 'allowbypass') {
       const setting = args.shift();

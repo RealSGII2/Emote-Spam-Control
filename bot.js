@@ -9,6 +9,11 @@ const allowedroles = ['0']; // IDs of the roles that are allowed to bypass
 let prefix = "!";
 
 // Actual coding for the bot
+client.on("ready", () => {
+    client.user.setActivity({game: {name: `with ${client.users.size} users!`, type: 0}});
+    console.log("GEH Helper has started!")
+});
+
 client.on("message", async message => {
   if(message.author.bot) return;
   if(message.content.indexOf(prefix) !== 0) return;

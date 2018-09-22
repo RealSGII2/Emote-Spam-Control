@@ -1,6 +1,8 @@
 // Getting variables
 const Discord = require('discord.js');
 const client = new Discord.Client();
+var EOMIDs = new Array();
+EOMIDs[258706134850863106] = new Array(1)
 
 
 // Settings
@@ -15,6 +17,21 @@ client.on("ready", () => {
 });
 
 client.on("message", async message => {
+  const cont = message.content
+  if (cont === 'a') {
+      if (EOMIDs[message.author.ID]) {
+          const newnum = EOMIDs[message.author.ID] + 1
+          EOMIDs[message.author.ID] = newnum
+      }
+  }
+    
+    
+    
+    
+  // Now for the commands
+    
+    
+    
   if(message.author.bot) return;
   if(message.content.indexOf(prefix) !== 0) return;
   

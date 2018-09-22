@@ -5,7 +5,7 @@ const client = new Discord.Client();
 
 // Settings
 const limit = 3; // Limit for emote only messages
-const allowedroles = ['0']; // IDs of the roles that are allowed to bypass
+const allowedroles = ['357371636539981824', '357371681985134592', '474073433202884618', '357610506946609153', '459102161310318632']; // IDs of the roles that are allowed to bypass
 let prefix = "$";
 
 // Actual coding for the bot

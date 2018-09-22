@@ -16,6 +16,11 @@ client.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()
   
+  if (command === 'ping') {
+   const m = await message.channel.send("Pinging...");
+    m.edit(`Pong! ${Math.round(client.ping)}ms`); 
+  }
+  
   if (command === 't' || command === 'tag') {
     const tagname = args.shift()
     if (tagname === 'all') {

@@ -44,7 +44,7 @@ client.on("message", async message => {
   
   if (command === 'allowbypass') {
       const setting = args.shift();
-      if (setting === 'true' || setting === 'false') {allbypass = setting} else {message.reply("the settings must either be: `['true', 'false']`!")}
+      if (setting === 'true' || setting === 'false') {allbypass = setting; message.reply(`the option to all bypass for everyone set to **${allbypass.toString()}**!`)} else {message.reply("the settings must either be: `['true', 'false']`!")}
   }
   
   if (command === 'setwarningdel') {

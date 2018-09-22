@@ -43,9 +43,9 @@ client.on("message", async message => {
   .setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL)
   .setThumbnail(avatar)
   .setTimestamp()
+  .addField("Uptime", uptime, true)
   .addField("Owner", "Omnidroid v10 • SGII2#2990", false)
   .addBlankField(false)
-  .addField("Uptime", uptime, true)
   .addField("Users", client.users.size, true)
   .addField("Servers", client.guilds.size, true)
 

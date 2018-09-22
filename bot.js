@@ -157,7 +157,8 @@ client.on("message", async message => {
         }
       }
     });
- } else {message.reply(`${tagname} is not a valid tag! Run '${prefix}tag all' to get all the tags.`)}
+ } else {message.reply(`${tagname} is not a valid tag! Run '${prefix}tag all' to get all the tags.`)} 
+  message.delete();
   }
 });
 

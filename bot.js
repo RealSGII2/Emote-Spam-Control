@@ -22,12 +22,17 @@ client.on("message", async message => {
       message.channel.send({embed: {
         color: 3447003,
         description: "\n",
+        author: {
+          name: client.user.username,
+          icon_url: client.user.avatarURL
+        },
         fields: [{
             name: "All Tags",
             value: "globalsnotworking, noglobalshere, expiredinvite, mentions, mixeremotes"
           },
         ],
         footer: {
+        icon_url: message.author.avatarURL,
         text: `Requested by ${message.author.tag}`
         }
       }

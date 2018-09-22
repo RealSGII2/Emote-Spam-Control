@@ -61,6 +61,8 @@ client.on("message", async message => {
           message.reply(`the option can only be set to numbers!`)
       }
   }
+      
+  } else {message.reply("you can't use that command!")}
   
   if (command === 'ping') {
    const m = await message.channel.send("Pinging...");
@@ -93,7 +95,7 @@ client.on("message", async message => {
   message.channel.send({embed});
  
   }
-  } else {message.reply("you can't use that command!")}
+  
   
   if (command === 't' || command === 'tag') {
     const tagname = args.shift()

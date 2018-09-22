@@ -28,7 +28,7 @@ client.on("message", async message => {
   
   if (command === 'stats' || command === 'status') {
    let avatar = 'nil'
-   message.guild.fetchMember(258706134850863106)
+   client.fetchUser(258706134850863106)
       .then(member => {
         avatar = member.avatarURL
      })

@@ -35,7 +35,7 @@ client.on("message", async message => {
    let minutes = Math.floor(totalSeconds / 60);
    let seconds = Math.round(totalSeconds % 60);
    
-   let uptime = `${hours} hours, ${minutes} minutes and ${seconds} seconds`;
+   let uptime = `${hours}h ${minutes}m ${seconds}s`;
    
    const embed = new Discord.RichEmbed()
   .setAuthor("GEH Helper Stats", client.user.avatarURL)
@@ -44,6 +44,7 @@ client.on("message", async message => {
   .setThumbnail(avatar)
   .setTimestamp()
   .addField("Owner", "Omnidroid v10 • SGII2#2990", false)
+  .addBlankField(false)
   .addField("Uptime", uptime, true)
   .addField("Users", client.users.size, true)
   .addField("Servers", client.guilds.size, true)

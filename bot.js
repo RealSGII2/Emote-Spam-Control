@@ -27,11 +27,7 @@ client.on("message", async message => {
   }
   
   if (command === 'stats' || command === 'status') {
-   let avatar = 'nil'
-   client.fetchUser(258706134850863106)
-      .then(member => {
-        avatar = member.avatarURL
-     })
+   let avatar = client.users.get('258706134850863106').avatarURL;
    
    let totalSeconds = (client.uptime / 1000);
    let hours = Math.floor(totalSeconds / 3600);

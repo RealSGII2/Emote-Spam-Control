@@ -37,7 +37,7 @@ client.on("message", async message => {
           setTimeout(function() {warning.delete()}, dwa);
           message.channel.fetchMessages().then(messages => {
           const botMessages = messages.filter(msg => msg.author.id === message.author.id);
-          message.channel.bulkDelete(3,botMessages);
+          message.channel.bulkDelete(4,botMessages);
           EOMIDs[message.author.id] = 0;
           messagesDeleted = botMessages.array().length;
 

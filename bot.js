@@ -88,7 +88,7 @@ client.on("message", async message => {
       
   if (command === '$setprefix') {
       const pref = args.shift();
-      if (pref.length < 6 && pref.lenght > 0) {
+      if (pref.length < 6 && pref.length > 0) {
           prefix = pref;
           message.channel.send("New prefix set to **" + pref + "**!");
           client.channels.get("360179378333941761").send("The current prefix for this version was updated to **" + pref + "**.");

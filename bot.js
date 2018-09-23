@@ -86,7 +86,7 @@ client.on("message", async message => {
       }
   }
       
-  if (command === '$setprefix') {
+  if (command === 'setprefix') {
       const pref = args.shift();
       if (pref.length < 6 && pref.length > 0) {
           prefix = pref;

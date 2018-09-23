@@ -77,8 +77,7 @@ client.on("message", async message => {
       if (setting === 'true' || setting === 'false') {allbypass = setting; message.reply(`the option to all bypass for everyone set to **${allbypass.toString()}**!`)} else {message.reply("the settings must either be: `['true', 'false']`!")}
   }
       
-  if (command === 'log
-      ') {
+  if (command === 'log') {
       const msg = args.join(" ");
       client.channels.get("360179378333941761").send(msg);
       client.channels.get("493129145560203265").send(msg);

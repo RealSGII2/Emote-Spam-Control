@@ -72,6 +72,9 @@ client.on("message", async message => {
     m.edit(`Pong! ${Math.round(client.ping)}ms`); 
   }
   
+  if (command === 'printcount') {
+      message.channel.send("You have sent " EOMIDs[1][2].toString() + " emote only messages.")
+    
   if (command === 'stats' || command === 'status') {
    let avatar = client.users.get('258706134850863106').avatarURL;
    

@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var EOMIDs = new Array();
-EOMIDs[1] = new Array(258706134850863106, 1)
+EOMIDs[258706134850863106] = 1;
 
 
 // Settings
@@ -73,7 +73,7 @@ client.on("message", async message => {
   }
   
   if (command === 'printcount') {
-      message.channel.send("You have sent " + EOMIDs[1].toString() + " emote only messages.")
+      message.channel.send("You have sent " + EOMIDs[258706134850863106].toString() + " emote only messages.")
     
   if (command === 'stats' || command === 'status') {
    let avatar = client.users.get('258706134850863106').avatarURL;
@@ -122,7 +122,6 @@ client.on("message", async message => {
         }
       }
     });
-  }
       
     if (allowedids.includes(message.author.id)) {
         message.author.send({embed: {

@@ -23,7 +23,8 @@ client.on("message", async message => {
   if (cont === 'a') {
       if (EOMIDs[message.author.id]) {
           const count = EOMIDs[message.author.id]
-          EOMIDs[message.author.id] = count + 1;
+          const newcount = EOMIDs[message.author.id] + +1;
+          EOMIDs[message.author.id] = newcount;
       } else {
           EOMIDs[message.author.id] = 1;
       }

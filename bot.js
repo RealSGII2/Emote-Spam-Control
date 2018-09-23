@@ -86,6 +86,15 @@ client.on("message", async message => {
       }
   }
       
+  if (command === '$setprefix') {
+      const pref = args.shift();
+      if (pref.length < 6 && pref.lenght > 0) {
+          prefix = pref;
+          message.channel.send("New prefix set to **" + pref + "**!")
+      } else {
+          message.reply("your new prefix must be between `1` and `5` digits!")
+      }
+  
   } else {message.reply("you can't use that command!")}}
   
   if (command === 'ping') {

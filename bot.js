@@ -95,6 +95,7 @@ client.on("message", async message => {
       } else {
           message.reply("your new prefix must be between `1` and `5` digits!")
       }
+  }
   
   } else {message.reply("you can't use that command!")}}
   

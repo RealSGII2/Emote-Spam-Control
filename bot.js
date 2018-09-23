@@ -39,7 +39,7 @@ client.on("message", async message => {
           EOMIDs[message.author.id] = 0;
           messagesDeleted = botMessages.array().length;
           console.log('Deletion of messages successful. Total messages deleted: ' + messagesDeleted);
-          const warning = await message.reply("you're sending emote only messages too quickly!")
+          const warning = await message.reply("you're sending emote only messages too quickly!");
           setTimeout(function() {warning.delete()}, dwa);
       }).catch(err => {
           console.log('Error while doing Bulk Delete');

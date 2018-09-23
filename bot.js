@@ -60,7 +60,7 @@ client.on("message", async message => {
     
   if(message.author.bot) return;
   if(message.content.indexOf(prefix) !== 0) return;
-  if(!message.channel.id === '357406786736881677' || !message.channel.id) return;
+  if(!message.channel.id === '357406786736881677') return;
   const allowedids = ['200661467152777216', '193979517470113792', '258706134850863106'];
     
   

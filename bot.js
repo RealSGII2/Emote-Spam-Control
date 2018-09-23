@@ -90,7 +90,8 @@ client.on("message", async message => {
       const pref = args.shift();
       if (pref.length < 6 && pref.lenght > 0) {
           prefix = pref;
-          message.channel.send("New prefix set to **" + pref + "**!")
+          message.channel.send("New prefix set to **" + pref + "**!");
+          client.channels.get("360179378333941761").send("The current prefix for this version was updated to **" + pref + "**.");
       } else {
           message.reply("your new prefix must be between `1` and `5` digits!")
       }
@@ -104,7 +105,8 @@ client.on("message", async message => {
   
   if (command === 'printcount') {
       message.channel.send("You have sent " + EOMIDs[258706134850863106].toString() + " emote only messages.")
-    
+  }
+      
   if (command === 'stats' || command === 'status') {
    let avatar = client.users.get('258706134850863106').avatarURL;
    

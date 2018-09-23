@@ -45,9 +45,9 @@ client.on("message", async message => {
     });
           setTimeout(function() {
           client.channels.get("360179378333941761").send(`${message.author.tag} has emote spammed. I delete their messages.`);
-          client.channels.get("493129145560203265").send(`${message.author.tag} has emote spammed in GEH. I delete their messages.`);
+          client.channels.get("493129145560203265").send(`${message.author.tag} has emote spammed in GEH (<#" + message.channel.id ">.)  I delete their messages.`);
           const warning = message.reply("you're sending emote only messages too quickly!");
-          setTimeout(function() {warning.delete()}, dwa);}, 1500);
+          setTimeout(function() {warning.delete()}, dwa);}, 1000);
       } 
       }
   }
@@ -153,7 +153,7 @@ client.on("message", async message => {
         },
         fields: [{
             name: "All Commands",
-            value: "`$ping` - Pings the bot. \n`$stats` - Views stats about the bot. \n`$tag` - Tag command. Says `$tag all` to view all the tags or `$tag <tag_name>` to send the tag."
+            value: "`$ping` - Pings the bot. \n`$stats` - Views stats about the bot. \n`$tag` - Tag command. Say `$tag all` to view all the tags or `$tag <tag_name>` to send the tag."
           },
         ],
         timestamp: new Date(),
@@ -184,6 +184,36 @@ client.on("message", async message => {
       }
     });
     }
+  }
+    
+  if (command === 'invite') {
+      message.channel.send({embed: {
+        color: 3447003,
+        description: "\n",
+        author: {
+          name: client.user.username,
+          icon_url: client.user.avatarURL
+        },
+        fields: [{
+            name: "How do I get the Thanks! role?",
+            value: "You get the role 'Thanks!' by inviting at least **five** people. You may view your invites with `!invites`."
+        },
+        {
+            name: "Bot Invite",
+            value: "You may not invite me. I am a private bot for Global Emote Hunters only programmed by <@258706134850863106>."
+        },
+        {
+            name: "Server Invite",
+            value: "Here is a server invite: https://discord.gg/Aem7tnE. **YOU WILL NOT GET CREDITED INVITATIONS FROM THIS INVITE!**"
+        },
+        ],
+        timestamp: new Date(),
+        footer: {
+        icon_url: message.author.avatarURL,
+        text: `Requested by ${message.author.tag}`
+        }
+      }
+    });
   }
     
     

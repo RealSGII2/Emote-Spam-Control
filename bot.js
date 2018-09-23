@@ -77,7 +77,8 @@ client.on("message", async message => {
       if (setting === 'true' || setting === 'false') {allbypass = setting; message.reply(`the option to all bypass for everyone set to **${allbypass.toString()}**!`)} else {message.reply("the settings must either be: `['true', 'false']`!")}
   }
       
-  if (command === 'sendlog') {
+  if (command === 'log
+      ') {
       const msg = args.join(" ");
       client.channels.get("360179378333941761").send(msg);
       client.channels.get("493129145560203265").send(msg);
@@ -232,6 +233,7 @@ client.on("message", async message => {
             value: "globalsnotworking, noglobalshere, expiredinvite, mentions, mixeremotes"
           },
         ],
+        timestamp: new Date(),
         footer: {
         icon_url: message.author.avatarURL,
         text: `Requested by ${message.author.tag}`
@@ -240,6 +242,31 @@ client.on("message", async message => {
     });
     }
     
+  else if (tagname === 'esc') {
+      message.channel.send({embed: {
+        color: 3447003,
+        description: "\n",
+        author: {
+          name: client.user.username,
+          icon_url: client.user.avatarURL
+        },
+        fields: [{
+            name: "What is Emote Spam Control?",
+            value: "Emote spam control is a bot auto moderation feature that deletes messages if a specific user posts **three emote only messages**."
+          },
+          {
+            name: "How do I clear my counter?",
+            value: "If you send **ten non-emote only messages**, your counter will be reset."
+          },
+        ],
+        footer: {
+        icon_url: message.author.avatarURL,
+        text: `Tag name: esc`
+        }
+      }
+    });
+    }
+      
     else if (tagname === 'kiri') {message.channel.send("Sub2<@289532145960091649>")}
       
   else if (tagname === 'globalsnotworking') {
@@ -251,7 +278,6 @@ client.on("message", async message => {
             value: "Emotes failing to work depends on the integration: GameWisp requires you to have a role on the server--some global emote servers will automatically give you this role. If the role isn't automatically given, you'll have to add it yourself manually. If you've met the above requirement, you may need to restart your discord. Mixer emotes servers, and BTTV emote servers require none of this hassle."
           },
         ],
-        timestamp: new Date(),
         footer: {
         text: `Tag name: globalsnotworking`
         }

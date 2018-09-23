@@ -165,7 +165,6 @@ client.on("message", async message => {
     });
     }
   }
-  }
     
     
   if (command === 't' || command === 'tag') {

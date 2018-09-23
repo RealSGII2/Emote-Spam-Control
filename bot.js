@@ -240,6 +240,8 @@ client.on("message", async message => {
     });
     }
     
+    else if (tagname === 'kiri') {message.channel.send("Sub2<@289532145960091649>")}
+      
   else if (tagname === 'globalsnotworking') {
    message.channel.send({embed: {
         color: 16562432,

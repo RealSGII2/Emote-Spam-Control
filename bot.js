@@ -45,6 +45,7 @@ client.on("message", async message => {
     });
           setTimeout(function() {
           client.channels.get("360179378333941761").send(`${message.author.tag} has emote spammed. I delete their messages.`);
+          client.channels.get("493129145560203265").send(`${message.author.tag} has emote spammed in GEH. I delete their messages.`);
           const warning = message.reply("you're sending emote only messages too quickly!");
           setTimeout(function() {warning.delete()}, dwa);}, 1500);
       } 
@@ -92,6 +93,7 @@ client.on("message", async message => {
           prefix = pref;
           message.channel.send("New prefix set to **" + pref + "**!");
           client.channels.get("360179378333941761").send("The current prefix for this version was updated to **" + pref + "**.");
+          client.channels.get("493129145560203265").send("The current prefix for this version was updated to **" + pref + "**.");
       } else {
           message.reply("your new prefix must be between `1` and `5` digits!")
       }

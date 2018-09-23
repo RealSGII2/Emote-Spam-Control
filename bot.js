@@ -33,16 +33,14 @@ client.on("message", async message => {
           const warning = await message.reply("you're sending " + cont + " a bit too quickly! Messages weren't deleted because you can bypass.");
           setTimeout(function() {warning.delete()}, dwa);
       } else {
-          const warning = await message.reply("you're sending emote only messages too quickly!")
-          setTimeout(function() {warning.delete()}, dwa);
           message.channel.fetchMessages().then(messages => {
           const botMessages = messages.filter(msg => msg.author.id === message.author.id);
-          message.channel.bulkDelete(4,botMessages);
+          message.channel.bulkDelete(3,botMessages);
           EOMIDs[message.author.id] = 0;
           messagesDeleted = botMessages.array().length;
-
-          message.channel.send("Deletion of messages successful. Total messages deleted: " + messagesDeleted);
-          console.log('Deletion of messages successful. Total messages deleted: ' + messagesDeleted)
+          console.log('Deletion of messages successful. Total messages deleted: ' + messagesDeleted);
+          const warning = await message.reply("you're sending emote only messages too quickly!")
+          setTimeout(function() {warning.delete()}, dwa);
       }).catch(err => {
           console.log('Error while doing Bulk Delete');
           console.log(err);

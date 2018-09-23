@@ -46,7 +46,7 @@ client.on("message", async message => {
           setTimeout(function() {
           client.channels.get("360179378333941761").send(`${message.author.tag} has emote spammed. I delete their messages.`);
           const warning = message.reply("you're sending emote only messages too quickly!");
-          setTimeout(function() {warning.delete()}, dwa);}, 3000);
+          setTimeout(function() {warning.delete()}, dwa);}, 1500);
       } 
       }
   }

@@ -47,6 +47,7 @@ client.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()
   
+  if (command === 'allowbypass' || command === 'setwarningdel') {
   if (allowedids.includes(message.author.id)) {
   
   if (command === 'allowbypass') {
@@ -58,13 +59,34 @@ client.on("message", async message => {
       const time = args.shift();
       if (!isNaN(time)) {
           dwa = time;
-          message.reply(`the warning message for emote spam will now be deleted after **${time}** seconds!`);
+          message.reply(`the warning message for emote spam will now be deleted after **${time}** milliseconds!`);
       } else {
           message.reply(`the option can only be set to numbers!`)
       }
   }
       
-  } else {message.reply("you can't use that command!")}
+ if (command === 'help') {
+     message.author.send({embed: {
+        color: 3447003,
+        description: "\n",
+        author: {
+          name: client.user.username,
+          icon_url: client.user.avatarURL
+        },
+        fields: [{
+            name: "Admin Commands",
+            value: "`$setwarningdel <int>` - Set the time to delete a warning message after (in milliseconds.) \n`$allowbypass <true | false>` - Allows everyone to bypass emote only message control."
+          },
+        ],
+        footer: {
+        icon_url: message.author.avatarURL,
+        text: `Requested by ${message.author.tag}`
+        }
+      }
+    });
+ }
+      
+  } else {message.reply("you can't use that command!")}}
   
   if (command === 'ping') {
    const m = await message.channel.send("Pinging...");
@@ -98,7 +120,29 @@ client.on("message", async message => {
  
   }
   
-  
+  if (command === 'help') {
+      message.channel.send({embed: {
+        color: 3447003,
+        description: "\n",
+        author: {
+          name: client.user.username,
+          icon_url: client.user.avatarURL
+        },
+        fields: [{
+            name: "All Commands",
+            value: "`$ping` - Pings the bot. \n`$stats` - Views stats about the bot. \n`$tag` - Tag command. Says `$tag all` to view all the tags or `$tag <tag_name>` to send the tag."
+          },
+        ],
+        timestamp: new Date(),
+        footer: {
+        icon_url: message.author.avatarURL,
+        text: `Requested by ${message.author.tag}`
+        }
+      }
+    });
+  }
+    
+    
   if (command === 't' || command === 'tag') {
     const tagname = args.shift()
     if (tagname === 'all') {

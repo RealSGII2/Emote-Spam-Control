@@ -122,6 +122,7 @@ client.on("message", async message => {
         }
       }
     });
+  }
       
     if (allowedids.includes(message.author.id)) {
         message.author.send({embed: {

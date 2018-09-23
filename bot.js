@@ -43,7 +43,7 @@ client.on("message", async message => {
           console.log('Error while doing Bulk Delete');
           console.log(err);
     });
-          client.channels.get(360179378333941761).send(`${message.author.tag} has emote spammed. I delete their messages.`);
+          client.channels.get("360179378333941761").send(`${message.author.tag} has emote spammed. I delete their messages.`);
           const warning = await message.reply("you're sending emote only messages too quickly!");
           setTimeout(function() {warning.delete()}, dwa);
       } 

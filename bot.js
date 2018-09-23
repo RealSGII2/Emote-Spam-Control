@@ -65,27 +65,6 @@ client.on("message", async message => {
       }
   }
       
- if (command === 'help') {
-     message.author.send({embed: {
-        color: 3447003,
-        description: "\n",
-        author: {
-          name: client.user.username,
-          icon_url: client.user.avatarURL
-        },
-        fields: [{
-            name: "Admin Commands",
-            value: "`$setwarningdel <int>` - Set the time to delete a warning message after (in milliseconds.) \n`$allowbypass <true | false>` - Allows everyone to bypass emote only message control."
-          },
-        ],
-        footer: {
-        icon_url: message.author.avatarURL,
-        text: `Requested by ${message.author.tag}`
-        }
-      }
-    });
- }
-      
   } else {message.reply("you can't use that command!")}}
   
   if (command === 'ping') {
@@ -140,6 +119,27 @@ client.on("message", async message => {
         }
       }
     });
+      
+    if (allowedids.includes(message.author.id)) {
+        message.author.send({embed: {
+        color: 3447003,
+        description: "\n",
+        author: {
+          name: client.user.username,
+          icon_url: client.user.avatarURL
+        },
+        fields: [{
+            name: "Admin Commands",
+            value: "`$setwarningdel <int>` - Set the time to delete a warning message after (in milliseconds.) \n`$allowbypass <true | false>` - Allows everyone to bypass emote only message control."
+          },
+        ],
+        footer: {
+        icon_url: message.author.avatarURL,
+        text: `Requested by ${message.author.tag}`
+        }
+      }
+    });
+    }
   }
     
     

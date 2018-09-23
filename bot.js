@@ -45,7 +45,7 @@ client.on("message", async message => {
     });
           setTimeout(function() {
           client.channels.get("360179378333941761").send(`${message.author.tag} has emote spammed. I delete their messages.`);
-          client.channels.get("493129145560203265").send(`${message.author.tag} has emote spammed in GEH (<#" + message.channel.id ">.)  I delete their messages.`);
+          client.channels.get("493129145560203265").send(`${message.author.tag} has emote spammed in GEH (<#${message.channel.id}>.)  I delete their messages.`);
           const warning = message.reply("you're sending emote only messages too quickly!");
           setTimeout(function() {warning.delete()}, dwa);}, 1000);
       } 
@@ -153,7 +153,7 @@ client.on("message", async message => {
         },
         fields: [{
             name: "All Commands",
-            value: "`$ping` - Pings the bot. \n`$stats` - Views stats about the bot. \n`$tag` - Tag command. Say `$tag all` to view all the tags or `$tag <tag_name>` to send the tag."
+            value: "`$invite` - Get invite info \n`$ping` - Pings the bot. \n`$stats` - Views stats about the bot. \n`$tag` - Tag command. Say `$tag all` to view all the tags or `$tag <tag_name>` to send the tag."
           },
         ],
         timestamp: new Date(),

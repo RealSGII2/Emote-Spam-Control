@@ -35,6 +35,17 @@ client.on("message", async message => {
       } else {
           const warning = await message.reply("you're sending emote only messages too quickly!")
           setTimeout(function() {warning.delete()}, dwa);
+          message.channel.fetchMessages().then(messages => {
+          const botMessages = messages.filter(msg => msg.author.id === message.author.id);
+          message.channel.bulkDelete(3,botMessages);
+          messagesDeleted = botMessages.array().length;
+
+          message.channel.send("Deletion of messages successful. Total messages deleted: " + messagesDeleted);
+          console.log('Deletion of messages successful. Total messages deleted: ' + messagesDeleted)
+      }).catch(err => {
+          console.log('Error while doing Bulk Delete');
+          console.log(err);
+    });
       } 
       }
   }

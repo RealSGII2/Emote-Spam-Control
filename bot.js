@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var EOMIDs = new Array();
-EOMIDs[258706134850863106] = 1;
+EOMIDs[1] = new Array(258706134850863106, 1)
 
 
 // Settings
@@ -18,43 +18,16 @@ client.on("ready", () => {
     console.log("GEH Helper has started!")
 });
 
-client.on('messageReactionAdd', (reaction, user) => {
-    
-})
-
 client.on("message", async message => {
-  console.log(message.channel.get("493591578414415873").reactions)
   const cont = message.content;
-  if (cont === 'a') {
-      if (EOMIDs[message.author.id]) {
-          const count = EOMIDs[message.author.id]
-          const newcount = EOMIDs[message.author.id] + +1;
-          EOMIDs[message.author.id] = newcount;
-      } else {
-          EOMIDs[message.author.id] = 1;
-      }
-      if (EOMIDs[message.author.id] === 3) {
+  if (cont === 'a' || cont === 'spam') {
       if (message.member.roles.has(357371636539981824) || message.member.roles.has(357371681985134592) || message.member.roles.has(474073433202884618) || message.member.roles.has(357610506946609153) || message.member.roles.has(459102161310318632) || allbypass === true) {
           const warning = await message.reply("you're sending " + cont + " a bit too quickly! Messages weren't deleted because you can bypass.");
           setTimeout(function() {warning.delete()}, dwa);
       } else {
-          message.channel.fetchMessages().then(messages => {
-          const botMessages = messages.filter(msg => msg.author.id === message.author.id);
-          message.channel.bulkDelete(3,botMessages);
-          EOMIDs[message.author.id] = 0;
-          messagesDeleted = botMessages.array().length;
-          console.log('Deletion of messages successful. Total messages deleted: ' + messagesDeleted);
-      }).catch(err => {
-          console.log('Error while doing Bulk Delete');
-          console.log(err);
-    });
-          setTimeout(function() {
-          client.channels.get("360179378333941761").send(`${message.author.tag} has emote spammed. I delete their messages.`);
-          client.channels.get("493129145560203265").send(`${message.author.tag} has emote spammed in GEH (<#${message.channel.id}>.)  I delete their messages.`);
-          const warning = message.reply("you're sending emote only messages too quickly!");
-          setTimeout(function() {warning.delete()}, dwa);}, 1000);
+          const warning = await message.reply("you're sending emote only messages too quickly!")
+          setTimeout(function() {warning.delete()}, dwa);
       } 
-      }
   }
     
     
@@ -66,61 +39,39 @@ client.on("message", async message => {
     
   if(message.author.bot) return;
   if(message.content.indexOf(prefix) !== 0) return;
-  if(!message.channel.id === '357406786736881677') return;
-  const allowedids = ['200661467152777216', '193979517470113792', '258706134850863106'];
+  if(!message.channel.id === '357406786736881677' || !message.channel.id) return;
+  const allowedids = ['200661467152777216', '193979517470113792', '258706134850863106000'];
     
   
   
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()
   
-  if (command === 'allowbypass' || command === 'setwarningdel') {
+  if (command === 'allowbypass' 
   if (allowedids.includes(message.author.id)) {
   
   if (command === 'allowbypass') {
       const setting = args.shift();
       if (setting === 'true' || setting === 'false') {allbypass = setting; message.reply(`the option to all bypass for everyone set to **${allbypass.toString()}**!`)} else {message.reply("the settings must either be: `['true', 'false']`!")}
   }
-      
-  if (command === 'log') {
-      const msg = args.join(" ");
-      client.channels.get("360179378333941761").send(msg);
-      client.channels.get("493129145560203265").send(msg);
-  }
   
   if (command === 'setwarningdel') {
       const time = args.shift();
       if (!isNaN(time)) {
           dwa = time;
-          message.reply(`the warning message for emote spam will now be deleted after **${time}** milliseconds!`);
+          message.reply(`the warning message for emote spam will now be deleted after **${time}** seconds!`);
       } else {
           message.reply(`the option can only be set to numbers!`)
       }
   }
       
-  if (command === 'setprefix') {
-      const pref = args.shift();
-      if (pref.length < 6 && pref.length > 0) {
-          prefix = pref;
-          message.channel.send("New prefix set to **" + pref + "**!");
-          client.channels.get("360179378333941761").send("The current prefix for this version was updated to **" + pref + "**.");
-          client.channels.get("493129145560203265").send("The current prefix for this version was updated to **" + pref + "**.");
-      } else {
-          message.reply("your new prefix must be between `1` and `5` digits!")
-      }
-  }
-  
-  } else {message.reply("you can't use that command!")}}
+  } else {message.reply("you can't use that command!")}
   
   if (command === 'ping') {
    const m = await message.channel.send("Pinging...");
     m.edit(`Pong! ${Math.round(client.ping)}ms`); 
   }
   
-  if (command === 'printcount') {
-      message.channel.send("You have sent " + EOMIDs[258706134850863106].toString() + " emote only messages.")
-  }
-      
   if (command === 'stats' || command === 'status') {
    let avatar = client.users.get('258706134850863106').avatarURL;
    
@@ -148,80 +99,7 @@ client.on("message", async message => {
  
   }
   
-  if (command === 'help') {
-      message.channel.send({embed: {
-        color: 3447003,
-        description: "\n",
-        author: {
-          name: client.user.username,
-          icon_url: client.user.avatarURL
-        },
-        fields: [{
-            name: "All Commands",
-            value: "`$invite` - Get invite info \n`$ping` - Pings the bot. \n`$stats` - Views stats about the bot. \n`$tag` - Tag command. Say `$tag all` to view all the tags or `$tag <tag_name>` to send the tag."
-          },
-        ],
-        timestamp: new Date(),
-        footer: {
-        icon_url: message.author.avatarURL,
-        text: `Requested by ${message.author.tag}`
-        }
-      }
-    });
-      
-    if (allowedids.includes(message.author.id)) {
-        message.author.send({embed: {
-        color: 3447003,
-        description: "\n",
-        author: {
-          name: client.user.username,
-          icon_url: client.user.avatarURL
-        },
-        fields: [{
-            name: "Admin Commands",
-            value: "`$setwarningdel <int>` - Set the time to delete a warning message after (in milliseconds.) \n`$allowbypass <true | false>` - Allows everyone to bypass emote only message control."
-          },
-        ],
-        footer: {
-        icon_url: message.author.avatarURL,
-        text: `Requested by ${message.author.tag}`
-        }
-      }
-    });
-    }
-  }
-    
-  if (command === 'invite') {
-      message.channel.send({embed: {
-        color: 3447003,
-        description: "\n",
-        author: {
-          name: client.user.username,
-          icon_url: client.user.avatarURL
-        },
-        fields: [{
-            name: "How do I get the Thanks! role?",
-            value: "You get the role 'Thanks!' by inviting at least **five** people. You may view your invites with `!invites`."
-        },
-        {
-            name: "Bot Invite",
-            value: "You may not invite me. I am a private bot for Global Emote Hunters only programmed by <@258706134850863106>."
-        },
-        {
-            name: "Server Invite",
-            value: "Here is a server invite: https://discord.gg/Aem7tnE. **YOU WILL NOT GET CREDITED INVITATIONS FROM THIS INVITE!**"
-        },
-        ],
-        timestamp: new Date(),
-        footer: {
-        icon_url: message.author.avatarURL,
-        text: `Requested by ${message.author.tag}`
-        }
-      }
-    });
-  }
-    
-    
+  
   if (command === 't' || command === 'tag') {
     const tagname = args.shift()
     if (tagname === 'all') {
@@ -237,7 +115,6 @@ client.on("message", async message => {
             value: "globalsnotworking, noglobalshere, expiredinvite, mentions, mixeremotes"
           },
         ],
-        timestamp: new Date(),
         footer: {
         icon_url: message.author.avatarURL,
         text: `Requested by ${message.author.tag}`
@@ -246,33 +123,6 @@ client.on("message", async message => {
     });
     }
     
-  else if (tagname === 'esc') {
-      message.channel.send({embed: {
-        color: 3447003,
-        description: "\n",
-        author: {
-          name: client.user.username,
-          icon_url: client.user.avatarURL
-        },
-        fields: [{
-            name: "What is Emote Spam Control?",
-            value: "Emote spam control is a bot auto moderation feature that deletes messages if a specific user posts **three emote only messages**."
-          },
-          {
-            name: "How do I clear my counter?",
-            value: "If you send **ten non-emote only messages**, your counter will be reset."
-          },
-        ],
-        footer: {
-        icon_url: message.author.avatarURL,
-        text: `Tag name: esc`
-        }
-      }
-    });
-    }
-      
-    else if (tagname === 'kiri') {message.channel.send("Sub2<@289532145960091649>")}
-      
   else if (tagname === 'globalsnotworking') {
    message.channel.send({embed: {
         color: 16562432,
@@ -282,6 +132,7 @@ client.on("message", async message => {
             value: "Emotes failing to work depends on the integration: GameWisp requires you to have a role on the server--some global emote servers will automatically give you this role. If the role isn't automatically given, you'll have to add it yourself manually. If you've met the above requirement, you may need to restart your discord. Mixer emotes servers, and BTTV emote servers require none of this hassle."
           },
         ],
+        timestamp: new Date(),
         footer: {
         text: `Tag name: globalsnotworking`
         }

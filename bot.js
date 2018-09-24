@@ -18,11 +18,12 @@ client.on("ready", () => {
     console.log("GEH Helper has started!")
 });
 
-client.on("reaction", async message => {
-    message.forEach(r => console.log(r.count.toString()))
+client.on('messageReactionAdd', (reaction, user) => {
+    
 })
 
 client.on("message", async message => {
+  console.log(message.channel.get("493591578414415873").reactions)
   const cont = message.content;
   if (cont === 'a') {
       if (EOMIDs[message.author.id]) {

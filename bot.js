@@ -19,7 +19,7 @@ client.on("ready", () => {
 });
 
 client.on("reaction", async message => {
-    message.forEach(r => if (r.count > 1) {message.channel.send("2 reactions")}))
+    message.forEach(r => if (r.count > 1) {message.channel.send("2 reactions")} else if (r.count === 1) {message.channel.send("1 reactions")})
 })
 
 client.on("message", async message => {

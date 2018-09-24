@@ -47,9 +47,6 @@ client.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()
   
-  if (command === 'allowbypass' 
-  if (allowedids.includes(message.author.id)) {
-  
   if (command === 'allowbypass') {
       const setting = args.shift();
       if (setting === 'true' || setting === 'false') {allbypass = setting; message.reply(`the option to all bypass for everyone set to **${allbypass.toString()}**!`)} else {message.reply("the settings must either be: `['true', 'false']`!")}

@@ -18,6 +18,10 @@ client.on("ready", () => {
     console.log("GEH Helper has started!")
 });
 
+client.on("reaction", async message => {
+    message.forEach(r => if (r.count > 1) {message.channel.send("2 reactions")}))
+})
+
 client.on("message", async message => {
   const cont = message.content;
   if (cont === 'a') {

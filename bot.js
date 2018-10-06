@@ -78,7 +78,7 @@ client.on("message", async message => {
 			});
       } else if (pstage === 3) {
           p2 = new RegEx(cont);
-          let ans = p2.test(p1).then(() => {message.channel.send({embed: {
+          p2.test(p1).then(ans => {message.channel.send({embed: {
     				color: 3066993,
                     title: "Regular Expression",
     				description: "\n",

@@ -2,6 +2,9 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var EOMIDs = new Array();
+
+var reg = new RegExp('<a?:\d+:.{1,100}>');
+
 EOMIDs[1] = new Array(258706134850863106, 1)
 
 
@@ -20,7 +23,7 @@ client.on("ready", () => {
 
 client.on("message", async message => {
   const cont = message.content;
-  if (cont === 'a' || cont === 'spam') {
+  if (reg.test(cont)) {
       if (message.member.roles.has(357371636539981824) || message.member.roles.has(357371681985134592) || message.member.roles.has(474073433202884618) || message.member.roles.has(357610506946609153) || message.member.roles.has(459102161310318632) || allbypass === true) {
           const warning = await message.reply("you're sending " + cont + " a bit too quickly! Messages weren't deleted because you can bypass.");
           setTimeout(function() {warning.delete()}, dwa);

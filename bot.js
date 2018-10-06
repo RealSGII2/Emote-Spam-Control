@@ -108,7 +108,7 @@ client.on("message", async message => {
   				],
 				}
 			});
-		   })
+		   });
 	  message.channel.send("Prompt has been finished.");
           promptopen = false;
           promptid = 0;

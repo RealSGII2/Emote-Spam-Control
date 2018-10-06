@@ -205,7 +205,7 @@ client.on("message", async message => {
         }
       }
     });
- } else {let msg = await message.reply(`${tagname} is not a valid tag! Run '${prefix}tag all' to get all the tags.`); setTimeout(function() {msg.delete()}, 5000} 
+ } else {let msg = await message.reply(`${tagname} is not a valid tag! Run '${prefix}tag all' to get all the tags.`); setTimeout(function() {msg.delete()}, 5000)} 
  message.delete();
   }
 });

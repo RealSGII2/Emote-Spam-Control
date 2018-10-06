@@ -45,7 +45,7 @@ client.on("message", async message => {
     
     
   if (cont === prefix + 'rtest') {
-      if (!promptopen === true && !promptid === message.author.id) {
+      if (promptopen === false && promptid !== message.author.id) {
           promptopen = true;
           promptid = message.author.id;
       }

@@ -77,7 +77,7 @@ client.on("message", async message => {
 				}
 			});
       } else if (pstage === 3) {
-          p2 = cont;
+          p2 = new RegEx(cont);
           let ans = p2.test(p1);
           message.channel.send({embed: {
     				color: 3066993,

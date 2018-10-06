@@ -88,11 +88,11 @@ client.on("message", async message => {
  		 		    },
                      {
     				    name: "RegEx Pattern",
-   				    value: p2
+   				    value: p2.toString()
  		 		    },
                     {
     				    name: "Output",
-   				    value: ans
+   				    value: ans.toString()
  		 		    },
   				],
 				}
@@ -103,7 +103,7 @@ client.on("message", async message => {
     				description: "\n",
     				fields: [{
     				    name: "Error: Regular Expression",
-   				    value: err
+   				    value: err.toString()
  		 		    },
   				],
 				}

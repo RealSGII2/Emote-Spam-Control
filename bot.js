@@ -78,8 +78,7 @@ client.on("message", async message => {
 			});
       } else if (pstage === 3) {
           p2 = new RegEx(cont);
-          let ans = p2.test(p1);
-          message.channel.send({embed: {
+          let ans = p2.test(p1).then(() => {message.channel.send({embed: {
     				color: 3066993,
                     title: "Regular Expression",
     				description: "\n",
@@ -97,7 +96,20 @@ client.on("message", async message => {
  		 		    },
   				],
 				}
+			});)})
+	    .catch(err => {
+          message.channel.send({embed: {
+    				color: 3066993,
+    				description: "\n",
+    				fields: [{
+    				    name: "Error: Regular Expression",
+   				    value: err
+ 		 		    },
+  				],
+				}
 			});
+		   })
+	  message.channel.send("Prompt has been finished.");
           promptopen = false;
           promptid = 0;
           promptstage = 0;

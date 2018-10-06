@@ -36,8 +36,7 @@ client.on("message", async message => {
       } else {
           const warning = await message.reply("you're sending emote only messages too quickly!")
           setTimeout(function() {warning.delete()}, dwa);
-      }} else {EOMIDs[message.author.id] = EOMIDs[message.author.id) + 1
-      }
+      }} EOMIDs[message.author.id] = EOMIDs[message.author.id] + 1
   }
     
     

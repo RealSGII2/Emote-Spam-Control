@@ -96,7 +96,7 @@ client.on("message", async message => {
  		 		    },
   				],
 				}
-			});)})
+			});})
 	    .catch(err => {
           message.channel.send({embed: {
     				color: 3066993,

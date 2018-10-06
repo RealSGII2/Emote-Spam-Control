@@ -188,6 +188,8 @@ client.on("message", async message => {
       }
     });
  }
+      
+ else if (tagname === 'everyone') {message.channel.send("@everyone")}
     
  else if (tagname === 'mixeremotes') {
    message.channel.send({embed: {
@@ -203,8 +205,8 @@ client.on("message", async message => {
         }
       }
     });
- } else {message.reply(`${tagname} is not a valid tag! Run '${prefix}tag all' to get all the tags.`)} 
-  message.delete();
+ } else {let msg = await message.reply(`${tagname} is not a valid tag! Run '${prefix}tag all' to get all the tags.`); setTimeout(function() {msg.delete()}, 5000} 
+ message.delete();
   }
 });
 

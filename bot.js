@@ -23,7 +23,8 @@ client.on("ready", () => {
 
 client.on("message", async message => {
   const cont = message.content;
-  if (reg.test(cont)) {
+  var ret = reg.test(cont);
+  if (ret) {
       if (message.member.roles.has(357371636539981824) || message.member.roles.has(357371681985134592) || message.member.roles.has(474073433202884618) || message.member.roles.has(357610506946609153) || message.member.roles.has(459102161310318632) || allbypass === true) {
           const warning = await message.reply("you're sending " + cont + " a bit too quickly! Messages weren't deleted because you can bypass.");
           setTimeout(function() {warning.delete()}, dwa);

@@ -36,7 +36,8 @@ client.on("message", async message => {
           setTimeout(function() {warning.delete()}, dwa);
       }} 
 	  const count = EOMIDs[message.author.id] || 0
-	  EOMIDs[message.author.id] = count + 1
+	  EOMIDs[message.author.id] = count + 1;
+	  setTimeout(function() {EOMIDs[message.author.id] = count - 1;}, 12000)
   }
     
     

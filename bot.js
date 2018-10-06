@@ -5,7 +5,7 @@ var EOMIDs = new Array();
 
 var reg = /(?:[>]+|:[A-Za-z0-9]+:)\w+/;
 
-EOMIDs[1] = new Array(258706134850863106, 1);
+EOMIDs[258706134850863106] = 1;
 
 let promptopen = false;
 let promptid = 0;
@@ -29,13 +29,15 @@ client.on("ready", () => {
 client.on("message", async message => {
   const cont = message.content;
   if (reg.test(cont)) {
+      if (EOMIDs[message.author.id] === 5) {
       if (message.member.roles.has(357371636539981824) || message.member.roles.has(357371681985134592) || message.member.roles.has(474073433202884618) || message.member.roles.has(357610506946609153) || message.member.roles.has(459102161310318632) || allbypass === true) {
           const warning = await message.reply("you're sending " + cont + " a bit too quickly! Messages weren't deleted because you can bypass.");
           setTimeout(function() {warning.delete()}, dwa);
       } else {
           const warning = await message.reply("you're sending emote only messages too quickly!")
           setTimeout(function() {warning.delete()}, dwa);
-      } 
+      }} else {EOMIDs[message.author.id] = EOMIDs[message.author.id) + 1
+      }
   }
     
     
@@ -79,8 +81,7 @@ client.on("message", async message => {
       } else if (pstage === 3) {
           p2 = new RegEx(cont);
           p2.test(p1).then(ans => {message.channel.send({embed: {
-    				color: 3066993,
-                    title: "Regular Expression",
+				color: 3066993,
     				description: "\n",
     				fields: [{
     				    name: "String",

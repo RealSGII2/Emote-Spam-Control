@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 var EOMIDs = new Array();
 
-var reg = new RegExp('<a?:\d+:.{1,100}>');
+var reg = /<a?:\d+:.{1,100}>/
 
 EOMIDs[1] = new Array(258706134850863106, 1)
 

@@ -7,6 +7,9 @@ var reg = /(?:[>]+|:[A-Za-z0-9]+:)\w+/;
 
 EOMIDs[1] = new Array(258706134850863106, 1);
 
+let promptopen = false;
+let promptid = 0;
+let pstage = 0;
 
 // Settings
 const limit = 3; // Limit for emote only messages
@@ -38,6 +41,21 @@ client.on("message", async message => {
     
   // Now for the commands
     
+    
+  if (command === prefix + 'rtest') {
+      if (!promptopen === true && !promptid === message.author.id) {
+          promptopen = true;
+          promptid = message.author.id;
+      }
+  }
+    
+  if (promptopen === true && promptid === message.author.id) {
+      pstage = pstage + 1;
+      if (pstage === 1) {
+      } else if (pstage === 2) {
+      } else if (pstage === 3) {
+      }
+  }
     
     
   if(message.author.bot) return;

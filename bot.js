@@ -189,7 +189,7 @@ client.on("message", async message => {
     });
  }
       
- else if (tagname === 'everyone') {message.channel.send("@everyone")}
+ else if (tagname === 'everyone') {message.channel.send("<@&379719520622870529>")}
     
  else if (tagname === 'mixeremotes') {
    message.channel.send({embed: {

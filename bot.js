@@ -5,8 +5,6 @@ var EOMIDs = new Array();
 
 var reg = /(?:[>]+|:[A-Za-z0-9]+:)\w+/;
 
-EOMIDs[258706134850863106] = 1;
-
 let promptopen = false;
 let promptid = 0;
 let pstage = 0;
@@ -29,7 +27,7 @@ client.on("ready", () => {
 client.on("message", async message => {
   const cont = message.content;
   if (reg.test(cont)) {
-      if (EOMIDs[message.author.id] === 5) {
+      if (EOMIDs[message.author.id] === 2) {
       if (message.member.roles.has(357371636539981824) || message.member.roles.has(357371681985134592) || message.member.roles.has(474073433202884618) || message.member.roles.has(357610506946609153) || message.member.roles.has(459102161310318632) || allbypass === true) {
           const warning = await message.reply("you're sending " + cont + " a bit too quickly! Messages weren't deleted because you can bypass.");
           setTimeout(function() {warning.delete()}, dwa);

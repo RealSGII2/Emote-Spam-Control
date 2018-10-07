@@ -185,7 +185,7 @@ client.on("message", async message => {
   if (command === 'mentionable') {
 	  if (menallowedid.includes(message.author.id)) {
 	  let role = args[0];
-	  if !role return message.reply("please say a role to make mentionable or unmentionable.");
+	  if (!role) return message.reply("please say a role to make mentionable or unmentionable.");
 	  if (message.guild.roles.find("name", role)) {
 		  message.channel.send("Works!
 		  } else {

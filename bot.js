@@ -173,7 +173,7 @@ client.on("message", async message => {
    let uptime = `${hours}h ${minutes}m ${seconds}s`;
    
    const embed = new Discord.RichEmbed()
-  .setAuthor("GEH Helper Stats", client.user.avatarURL)
+  .setAuthor("OmniTM Stats", client.user.avatarURL)
   .setColor(3447003)
   .setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL)
   .setThumbnail(avatar)
@@ -204,7 +204,7 @@ client.on("message", async message => {
   
   if (command === 'mpadd') {
 	  if (menallowedid.includes(message.author.id)) {
-		  const wUser = message.members.mentions.first() || args[0];
+		  const wUser = message.mentions.members.first() || args[0];
 		  if (!wUser) return message.reply("that is not a valid user!");
 		  menallowedid.push(wUser.id);
 		  message.reply(`${wUser.tag} has been added.`);

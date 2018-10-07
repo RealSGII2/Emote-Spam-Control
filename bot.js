@@ -55,6 +55,8 @@ client.on("message", async message => {
     
   if (promptopen === true && promptid === message.author.id) {
       pstage = pstage + 1;
+      if (cont === 'cancel' || cont === 'Cancel') {message.channel.send("Cancelled prompt."); promptopen = false; pstage = 0; promptid = 0;}
+      if (promptopen === false) return;
       if (pstage === 1) {
           message.channel.send({embed: {
     				color: 3066993,
@@ -187,7 +189,7 @@ client.on("message", async message => {
 	  let role = args[0];
 	  if (!role) return message.reply("please say a role to make mentionable or unmentionable.");
 	  if (message.guild.roles.find("name", role)) {
-		  message.channel.send("Works!
+		  message.channel.send("Works!");
 		  } else {
 	message.reply("can't find that role! Make sure you say the full name.");
 	 }

@@ -16,7 +16,7 @@ const limit = 3; // Limit for emote only messages
 let allbypass = false;
 let dwa = 4000; // Milliseconds to wait before deleting the warning
 const allowedroles = ['357371636539981824', '357371681985134592', '474073433202884618', '357610506946609153', '459102161310318632']; // IDs of the roles that are allowed to bypass
-let prefix = "$";
+let prefix = "+";
 
 // Actual coding for the bot
 client.on("ready", () => {

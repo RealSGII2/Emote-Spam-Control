@@ -46,7 +46,7 @@ client.on("message", async message => {
   // Now for the commands
     
     
-  if (cont === prefix + 'rtest') {
+  if (cont === prefix + 'sub') {
       if (promptopen === false && promptid !== message.author.id) {
           promptopen = true;
           promptid = message.author.id;
@@ -62,8 +62,8 @@ client.on("message", async message => {
     				color: 3066993,
     				description: "\n",
     				fields: [{
-    				    name: "Regular Expression",
-   				    value: "❔ What should the **string** be?"
+    				    name: "Submit Suggestion/ Bug",
+   				    value: "❔ What should the **title** of your submission be? \n\nState your answer to continue. \nSay **cancel** to cancel."
  		 		    },
   				],
 				}
@@ -74,52 +74,49 @@ client.on("message", async message => {
     				color: 3066993,
     				description: "\n",
     				fields: [{
-    				    name: "Regular Expression",
-   				    value: "❔ What should the **RegEx pattern** be?"
+    				    name: "Submit Suggestion/ Bug",
+   				    value: "❔ What should the **description** be? \n\nState your answer to continue. \nSay **cancel** to cancel."
  		 		    },
   				],
 				}
 			});
       } else if (pstage === 3) {
-          p2 = new RegEx(cont);
-          p2.test(p1).then(ans => {message.channel.send({embed: {
-				color: 3066993,
-    				description: "\n",
-    				fields: [{
-    				    name: "String",
-   				    value: p1
- 		 		    },
-                     {
-    				    name: "RegEx Pattern",
-   				    value: p2.toString()
- 		 		    },
-                    {
-    				    name: "Output",
-   				    value: ans.toString()
- 		 		    },
-  				],
-				}
-			});})
-	    .catch(err => {
-          message.channel.send({embed: {
+	      p2 = cont
+	      message.channel.send({embed: {
     				color: 3066993,
     				description: "\n",
     				fields: [{
-    				    name: "Error: Regular Expression",
-   				    value: err.toString()
+    				    name: "Submit Suggestion/ Bug",
+   				    value: "Your submission has been sent. \n\nPreview:"
  		 		    },
+					 {
+						 name: p1,
+						 value: p2
+						 }
   				],
 				}
 			});
-		   });
-	  message.channel.send("Prompt has been finished.");
+	      client.guilds.get().channels.get().send({embed: {
+    				color: 3066993,
+    				description: "\n",
+    				fields: [{
+    				    name: "Submit Suggestion/ Bug",
+   				    value: "Sent by " + message.author.tag
+ 		 		    },
+					 {
+						 name: p1,
+						 value: p2
+						 }
+  				],
+				}
+			});
           promptopen = false;
           promptid = 0;
           promptstage = 0;
       }
   }
     
-    
+  if(promptid === message.author.id) return;
   if(message.author.bot) return;
   if(message.content.indexOf(prefix) !== 0) return;
   if(!message.channel.id === '357406786736881677' || !message.channel.id) return;

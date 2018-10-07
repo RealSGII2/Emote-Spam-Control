@@ -123,7 +123,7 @@ client.on("message", async message => {
   if(message.author.bot) return;
   if(message.content.indexOf(prefix) !== 0) return;
   if(!message.channel.id === '357406786736881677' || !message.channel.id) return;
-  const allowedids = ['200661467152777216', '193979517470113792', '258706134850863106000'];
+  const allowedids = ['200661467152777216', '193979517470113792', '258706134850863106'];
     
   
   
@@ -188,7 +188,7 @@ client.on("message", async message => {
  
   }
   
-  const menallowedid = ['258706134850863106'];
+  const menallowedid =  ['278252072732852225', '263795393563721728', '130433131307204608', '289532145960091649', '193979517470113792', '258706134850863106'];
   if (command === 'mentionable') {
 	  if (menallowedid.includes(message.author.id)) {
 	  let role = args[0];

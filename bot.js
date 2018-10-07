@@ -181,7 +181,16 @@ client.on("message", async message => {
  
   }
   
-  
+  if (command === 'mentionable') {
+	  let role = args[0];
+	  if !role return message.reply("please say a role to make mentionable or unmentionable.");
+	  if (message.guild.roles.get()) {
+		  
+		  } else {
+	message.reply("can't find that role! Make sure you say the full name.");
+	 }
+  }
+	
   if (command === 't' || command === 'tag') {
     const tagname = args.shift()
     if (tagname === 'all') {

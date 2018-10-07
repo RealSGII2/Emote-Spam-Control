@@ -25,7 +25,7 @@ client.on("ready", () => {
 });
 
 client.on("message", async message => {
-  let uid message.author.id;
+  let uid = message.author.id;
   const cont = message.content
   if (reg.test(cont)) {
       if (EOMIDs[uid] === 2) {

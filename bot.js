@@ -25,9 +25,10 @@ client.on("ready", () => {
 });
 
 client.on("message", async message => {
-  const cont = message.content;
+  let uid message.author.id;
+  const cont = message.content
   if (reg.test(cont)) {
-      if (EOMIDs[message.author.id] === 2) {
+      if (EOMIDs[uid] === 2) {
       if (message.member.roles.has(357371636539981824) || message.member.roles.has(357371681985134592) || message.member.roles.has(474073433202884618) || message.member.roles.has(357610506946609153) || message.member.roles.has(459102161310318632) || allbypass === true) {
           const warning = await message.reply("you're sending " + cont + " a bit too quickly! Messages weren't deleted because you can bypass.");
           setTimeout(function() {warning.delete()}, dwa);
@@ -35,9 +36,9 @@ client.on("message", async message => {
           const warning = await message.reply("you're sending emote only messages too quickly!")
           setTimeout(function() {warning.delete()}, dwa);
       }} 
-	  const count = EOMIDs[message.author.id] || 0
-	  EOMIDs[message.author.id] = count + 1;
-	  setTimeout(function() {EOMIDs[message.author.id] = count - 1;}, 12000)
+	  const count = EOMIDs[uid] || 0
+	  EOMIDs[uid] = count + 1;
+	  setTimeout(function() {EOMIDs[uid] = count - 1;}, 12000)
   }
     
     
@@ -45,15 +46,14 @@ client.on("message", async message => {
     
   // Now for the commands
     
-    
   if (cont === prefix + 'rtest') {
-      if (promptopen === false && promptid !== message.author.id) {
+      if (promptopen === false && promptid !== uid) {
           promptopen = true;
-          promptid = message.author.id;
+          promptid = uid;
       }
   }
     
-  if (promptopen === true && promptid === message.author.id) {
+  if (promptopen === true && promptid === uid) {
       pstage = pstage + 1;
       if (cont === 'cancel' || cont === 'Cancel') {message.channel.send("Cancelled prompt."); promptopen = false; pstage = 0; promptid = 0;}
       if (promptopen === false) return;
@@ -130,9 +130,17 @@ client.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()
   
+  if (command === 'sudo') {
+	  const wUser = message.content.mentions.first() || args[0];
+	  if (!wUser) return message.reply("can't find that user!");
+	  uid = wUser.id;
+	  command = args[1];
+	  args.shift().shift();
+  }
+  
   if (command === 'allowbypass' || command === 'setwarningdel') {
   
-  if (allowedids.includes(message.author.id)) {
+  if (allowedids.includes(uid)) {
       
   if (command === 'allowbypass') {
       const setting = args.shift();

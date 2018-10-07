@@ -191,7 +191,7 @@ client.on("message", async message => {
 		  } else {
 	message.reply("can't find that role! Make sure you say the full name.");
 	 }
-	  } else {message.reply("you are not allowed to run that command!"}
+	  } else {message.reply("you are not allowed to run that command!");}
   }
 	
   if (command === 't' || command === 'tag') {

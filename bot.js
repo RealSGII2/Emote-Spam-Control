@@ -208,7 +208,7 @@ client.on("message", async message => {
 		  if (!wUser) return message.reply("that is not a valid user!");
 		  menallowedid.push(wUser.id);
 		  message.reply(`${wUser.tag} has been added.`);
-		  client.guilds.get("489624363877007360').channels.get('498627673413779476').send(`Add ${wUser.tag} (${wUser.id}) to menallowedid!`)
+		  client.guilds.get('489624363877007360').channels.get('498627673413779476').send(`Add ${wUser.tag} (${wUser.id}) to menallowedid!`)
 	}
   }
 	

@@ -201,6 +201,16 @@ client.on("message", async message => {
 	 }
 	  } else {message.reply("you are not allowed to run that command!");}
   }
+  
+  if (command === 'mpadd') {
+	  if (menallowedid.includes(message.author.id)) {
+		  const wUser = message.content.mentions.first() || args[0];
+		  if (!wUser) return message.reply("that is not a valid user!");
+		  menallowedid.push(wUser.id);
+		  message.reply(`${wUser.tag} has been added.`);
+		  client.channels.get('498627673413779476').send(`Add ${wUser.tag} (${wUser.id}) to menallowedid!`)
+	}
+  }
 	
   if (command === 't' || command === 'tag') {
     const tagname = args.shift()

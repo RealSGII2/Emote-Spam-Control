@@ -204,7 +204,7 @@ client.on("message", async message => {
   
   if (command === 'mpadd') {
 	  if (menallowedid.includes(message.author.id)) {
-		  let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+		  const wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
 		  if (!wUser) return message.reply("that is not a valid user!");
 		  menallowedid.push(wUser.id);
 		  message.reply(`${wUser.tag} has been added.`);

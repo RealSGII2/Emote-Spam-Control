@@ -183,7 +183,7 @@ client.on("message", async message => {
   
   const menallowedid = ['258706134850863106000'];
   if (command === 'mentionable') {
-	  if (menallowedid.includes(message.author.id) {
+	  if (menallowedid.includes(message.author.id)) {
 	  let role = args[0];
 	  if !role return message.reply("please say a role to make mentionable or unmentionable.");
 	  if (message.guild.roles.find("name", role)) {

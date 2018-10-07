@@ -130,7 +130,7 @@ client.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()
   
-  if (command === 'allowbypass' || command === 'setwarningdel') {
+  if (command === 'allowbypass' || command === 'setwarningdel' || command === 'setname') {
   
   if (allowedids.includes(message.author.id)) {
       
@@ -138,7 +138,12 @@ client.on("message", async message => {
       const setting = args.shift();
       if (setting === 'true' || setting === 'false') {allbypass = setting; message.reply(`the option to all bypass for everyone set to **${allbypass.toString()}**!`)} else {message.reply("the settings must either be: `['true', 'false']`!")}
   }
-  
+	  
+  if (command === 'setname') {
+      const name = args.join(" ");
+      client.user.setName(name).then(() => {message.reply(`new name set to ${name}!`}).catch(err => {message.reply(`err! ${err}`)});
+  }
+					    
   if (command === 'setwarningdel') {
       const time = args.shift();
       if (!isNaN(time)) {

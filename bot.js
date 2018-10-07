@@ -141,7 +141,7 @@ client.on("message", async message => {
 	  
   if (command === 'setname') {
       const name = args.join(" ");
-      client.user.setName(name).then(() => {message.reply(`new name set to ${name}!`}).catch(err => {message.reply(`err! ${err}`)});
+      client.user.setName(name).then(() => {message.reply(`new name set to ${name}!`)}).catch(err => {message.reply(`err! ${err}`)});
   }
 					    
   if (command === 'setwarningdel') {

@@ -96,7 +96,7 @@ client.on("message", async message => {
   				],
 				}
 			});
-	      client.guilds.get('489624363877007360').channels.get().send({embed: {
+	      client.guilds.get('489624363877007360').channels.get('498640427646189597').send({embed: {
     				color: 3066993,
     				description: "\n",
     				fields: [{

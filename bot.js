@@ -191,7 +191,7 @@ client.on("message", async message => {
   const menallowedid =  ['278252072732852225', '263795393563721728', '130433131307204608', '289532145960091649', '193979517470113792', '258706134850863106'];
   if (command === 'mentionable') {
 	  if (menallowedid.includes(message.author.id)) {
-	  let role = args[0];
+	  let role = args.join(" ");
 	  if (!role) return message.reply("please say a role to make mentionable or unmentionable.");
 	  if (message.guild.roles.find("name", role)) {
 		  if (message.guild.roles.find("name", role).mentionable) {message.guild.roles.find("name", role).setMentionable(false, `Requested by ${message.author.tag}.`); message.reply(`${role} is no longer mentionable.`);}
@@ -216,6 +216,12 @@ client.on("message", async message => {
             name: "All Tags",
             value: "globalsnotworking, noglobalshere, expiredinvite, mentions, mixeremotes"
           },
+		 {
+			 name: "Note",
+			 value: "These tags are meant for GEH only."
+		}
+		
+		
         ],
         footer: {
         icon_url: message.author.avatarURL,

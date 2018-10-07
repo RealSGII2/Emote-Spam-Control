@@ -183,7 +183,7 @@ client.on("message", async message => {
  
   }
   
-  const menallowedid = ['258706134850863106000'];
+  const menallowedid = ['258706134850863106'];
   if (command === 'mentionable') {
 	  if (menallowedid.includes(message.author.id)) {
 	  let role = args[0];

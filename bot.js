@@ -196,7 +196,6 @@ client.on("message", async message => {
 	  if (message.guild.roles.find("name", role)) {
 		  if (message.guild.roles.find("name", role).mentionable) {message.guild.roles.find("name", role).setMentionable(false, `Requested by ${message.author.tag}.`); message.reply(`${role} is no longer mentionable.`);}
 		  if (!message.guild.roles.find("name", role).mentionable) {message.guild.roles.find("name", role).setMentionable(true, `Requested by ${message.author.tag}.`); message.reply(`${role} is now mentionable!`);}
-		  
 		  } else {
 	message.reply("can't find that role! Make sure you say the full name.");
 	 }

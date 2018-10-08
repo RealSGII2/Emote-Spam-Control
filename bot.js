@@ -24,25 +24,7 @@ let prefix = "+";
 client.on("ready", () => {
     client.user.setGame("around with testers");
     console.log("GEH Helper has started!");
-    client.guilds.get('489624363877007360').channels.get('498688900760600596').bulkDelete(100)
-    setTimeout(function() {
-    gcm = await client.guilds.get('489624363877007360').channels.get('498688900760600596').send("Hello.");
-    }, 3000);
 });
-
-setInterval(function(){ 
-  gcm.edit({embed: {
-    				color: 3066993,
-    				description: "\n",
-    				fields: [{
-    				    name: "GEH Member Count",
-   				    value: `Guild Count: ${client.guilds.get('357367795341590528').members.count}`
- 		 		    },
-  				],
-				}
-			})
-
-}, 30000);
 
 client.on("guildMemberAdd", async member => {
   if (member.guild.id === '357367795341590528') {
@@ -169,7 +151,6 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase()
   
   if (command === 'allowbypass' || command === 'setwarningdel' || command === 'setname') {
-  
   if (allowedids.includes(message.author.id)) {
   
   if (command === 'allowbypass') {
@@ -199,6 +180,8 @@ client.on("message", async message => {
     m.edit(`Pong! ${Math.round(client.ping)}ms`); 
   }
   
+  if (command === 'count') {message.channel.send(`This guild has **${message.guild.members.size}** users.`)}
+	
   if (command === 'help') {
 	  message.channel.send({embed: {
     				color: 3066993,

@@ -26,7 +26,16 @@ client.on("ready", () => {
 
 client.on("guildMemberAdd", async member => {
   if (member.guild.id === '357367795341590528') {
-	  client.guilds.get('489624363877007360').channels.get('498688900760600596').
+	  client.guilds.get('489624363877007360').channels.get('498688900760600596').messages.get('498690757067145217').edit({embed: {
+    				color: 3066993,
+    				description: "\n",
+    				fields: [{
+    				    name: "GEH Member Count",
+   				    value: `Latest member to join: ${member.tag} Guild Count: ${member.guild.members.count}`
+ 		 		    },
+  				],
+				}
+			})
   }
 })
 

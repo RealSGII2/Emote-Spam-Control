@@ -5,6 +5,8 @@ var EOMIDs = new Array();
 
 var reg = /(?:[>]+|:[A-Za-z0-9]+:)\w+/;
 
+let gcm = null; 
+
 let promptopen = false;
 let promptid = 0;
 let pstage = 0;
@@ -21,12 +23,12 @@ let prefix = "+";
 // Actual coding for the bot
 client.on("ready", () => {
     client.user.setGame("around with testers");
-    console.log("GEH Helper has started!")
+    console.log("GEH Helper has started!");
+    gcm = await client.guilds.get('489624363877007360').channels.get('498688900760600596').send("Hello.");
 });
 
 setInterval(function(){ 
-	
-	client.guilds.get('489624363877007360').channels.get('498688900760600596').messages.get('498690757067145217').edit({embed: {
+  gcm.edit({embed: {
     				color: 3066993,
     				description: "\n",
     				fields: [{

@@ -24,7 +24,10 @@ let prefix = "+";
 client.on("ready", () => {
     client.user.setGame("around with testers");
     console.log("GEH Helper has started!");
+    client.guilds.get('489624363877007360').channels.get('498688900760600596').bulkDelete(100)
+    setTimeout(function() {
     gcm = await client.guilds.get('489624363877007360').channels.get('498688900760600596').send("Hello.");
+    }, 3000);
 });
 
 setInterval(function(){ 

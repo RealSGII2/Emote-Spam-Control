@@ -31,7 +31,7 @@ client.on("guildMemberAdd", async member => {
     				description: "\n",
     				fields: [{
     				    name: "GEH Member Count",
-   				    value: `Latest member to join: ${member.tag} Guild Count: ${member.guild.members.count}`
+   				    value: `Latest member to join: ${member.tag} Guild Count: ${client.guilds.get('357367795341590528').members.count}`
  		 		    },
   				],
 				}

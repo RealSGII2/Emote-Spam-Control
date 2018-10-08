@@ -25,6 +25,10 @@ client.on("ready", () => {
     console.log("GEH Helper has started!")
 });
 
+client.on("guildMemberAdd", async member => {
+	
+})
+
 client.on("message", async message => {
   const cont = message.content;
   if (reg.test(cont)) {

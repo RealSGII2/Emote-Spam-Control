@@ -56,8 +56,8 @@ client.on("message", async message => {
   }
     
   if (promptopen === true && promptid === message.author.id) {
-      pstage = pstage + 1;
       if (cont === prefix + "sub") return;
+      pstage = pstage + 1;
       if (cont === 'cancel' || cont === 'Cancel') {message.channel.send("Cancelled prompt."); promptopen = false; pstage = 0; promptid = 0;}
       if (promptopen === false) return;
       if (pstage === 1) {

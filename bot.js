@@ -24,18 +24,24 @@ client.on("ready", () => {
     console.log("GEH Helper has started!")
 });
 
-client.on("guildMemberAdd", async member => {
-  if (member.guild.id === '357367795341590528') {
-	  client.guilds.get('489624363877007360').channels.get('498688900760600596').messages.get('498690757067145217').edit({embed: {
+setInterval(function(){ 
+	
+	client.guilds.get('489624363877007360').channels.get('498688900760600596').messages.get('498690757067145217').edit({embed: {
     				color: 3066993,
     				description: "\n",
     				fields: [{
     				    name: "GEH Member Count",
-   				    value: `Latest member to join: ${member.tag} Guild Count: ${client.guilds.get('357367795341590528').members.count}`
+   				    value: `Guild Count: ${client.guilds.get('357367795341590528').members.count}`
  		 		    },
   				],
 				}
 			})
+
+}, 30000);
+
+client.on("guildMemberAdd", async member => {
+  if (member.guild.id === '357367795341590528') {
+	  
   }
 })
 

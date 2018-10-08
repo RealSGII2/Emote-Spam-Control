@@ -113,6 +113,8 @@ client.on("message", async message => {
           promptopen = false;
           promptid = 0;
           promptstage = 0;
+	  p1 = "";
+	  p2 = "";
       }
   }
     
@@ -130,7 +132,7 @@ client.on("message", async message => {
   if (command === 'allowbypass' || command === 'setwarningdel' || command === 'setname') {
   
   if (allowedids.includes(message.author.id)) {
-      
+  
   if (command === 'allowbypass') {
       const setting = args.shift();
       if (setting === 'true' || setting === 'false') {allbypass = setting; message.reply(`the option to all bypass for everyone set to **${allbypass.toString()}**!`)} else {message.reply("the settings must either be: `['true', 'false']`!")}
@@ -158,6 +160,19 @@ client.on("message", async message => {
     m.edit(`Pong! ${Math.round(client.ping)}ms`); 
   }
   
+  if (command === 'help') {
+	  message.channel.send({embed: {
+    				color: 3066993,
+    				description: "\n",
+    				fields: [{
+    				    name: "Help",
+   				    value: "`+sub` Submit a bug or suggestion. \n`+help` Shows this menu. \n`+ping` Shows the bot's ping. \n`+stats` Views stats. \n`+tag <name | all>` Uses Global Emote Hunter's tag system and sends them. \n`+mentionable <role>` Changes a role's mentionable state. \n`+mpadd <user>` Adds a user to the list who can use the mentionable command."
+ 		 		    },
+  				],
+				}
+			});
+  }
+	
   if (command === 'stats' || command === 'status') {
    let avatar = client.users.get('258706134850863106').avatarURL;
    

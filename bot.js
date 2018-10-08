@@ -60,6 +60,17 @@ client.on("message", async message => {
       if (cont === 'cancel' || cont === 'Cancel') {message.channel.send("Cancelled prompt."); promptopen = false; pstage = 0; promptid = 0;}
       if (promptopen === false) return;
       if (pstage === 1) {
+	      message.channel.send({embed: {
+    				color: 3066993,
+    				description: "\n",
+    				fields: [{
+    				    name: "Submit Suggestion/ Bug",
+   				    value: "🗣 Report bugs and send suggestions with this command! Abuse of this command may lead you to getting blocked from this command. \n\nSay anything to continue. \nSay **cancel** to cancel."
+ 		 		    },
+  				],
+				}
+			});
+      } else if (pstage === 2) {
           message.channel.send({embed: {
     				color: 3066993,
     				description: "\n",
@@ -70,7 +81,7 @@ client.on("message", async message => {
   				],
 				}
 			});
-      } else if (pstage === 2) {
+      } else if (pstage === 3) {
           p1 = cont;
           message.channel.send({embed: {
     				color: 3066993,
@@ -82,7 +93,7 @@ client.on("message", async message => {
   				],
 				}
 			});
-      } else if (pstage === 3) {
+      } else if (pstage === 4) {
 	      p2 = cont
 	      message.channel.send({embed: {
     				color: 3066993,

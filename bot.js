@@ -50,11 +50,13 @@ client.on("message", async message => {
       if (promptopen === false && promptid !== message.author.id) {
           promptopen = true;
           promptid = message.author.id;
-      }
+      } else {
+	  message.channel.send("You're already in an active prompt!")
   }
     
   if (promptopen === true && promptid === message.author.id) {
       pstage = pstage + 1;
+      if (cont === prefix + "sub") return;
       if (cont === 'cancel' || cont === 'Cancel') {message.channel.send("Cancelled prompt."); promptopen = false; pstage = 0; promptid = 0;}
       if (promptopen === false) return;
       if (pstage === 1) {

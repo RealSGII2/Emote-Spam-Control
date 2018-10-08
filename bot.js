@@ -20,13 +20,14 @@ let prefix = "+";
 
 // Actual coding for the bot
 client.on("ready", () => {
-  client.guilds.get('489624363877007360').channels.get('498688900760600596').send('Hello!');
     client.user.setGame("around with testers");
     console.log("GEH Helper has started!")
 });
 
 client.on("guildMemberAdd", async member => {
-	
+  if (member.guild.id === '357367795341590528') {
+	  client.guilds.get('489624363877007360').channels.get('498688900760600596').
+  }
 })
 
 client.on("message", async message => {

@@ -115,7 +115,7 @@ client.on("message", async message => {
 			});
           promptopen = false;
           promptid = 0;
-          promptstage = 0;
+          pstage = 0;
 	  p1 = "";
 	  p2 = "";
       }

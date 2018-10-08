@@ -20,6 +20,7 @@ let prefix = "+";
 
 // Actual coding for the bot
 client.on("ready", () => {
+  client.guilds.get('489624363877007360')
     client.user.setGame("around with testers");
     console.log("GEH Helper has started!")
 });

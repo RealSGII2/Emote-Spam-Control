@@ -52,6 +52,7 @@ client.on("message", async message => {
           promptid = message.author.id;
       } else {
 	  message.channel.send("You're already in an active prompt!")
+      }
   }
     
   if (promptopen === true && promptid === message.author.id) {

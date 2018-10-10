@@ -297,6 +297,7 @@ client.on("message", async message => {
 	
   if (command === 'stats' || command === 'status') {
    let avatar = client.users.get('258706134850863106').avatarURL;
+   let name = `${client.users.get('258706134850863106').name}#${client.users.get('258706134850863106').discriminator}`
    
    let totalSeconds = (client.uptime / 1000);
    let hours = Math.floor(totalSeconds / 3600);
@@ -313,7 +314,7 @@ client.on("message", async message => {
   .setThumbnail(avatar)
   .setTimestamp()
   .addField("Uptime", uptime, true)
-  .addField("Owner", "Omnidroid v10 • SGII2#2990", true)
+  .addField("Owner", "name", true)
   .addBlankField(false)
   .addField("Users", client.users.size, true)
   .addField("Servers", client.guilds.size, true)

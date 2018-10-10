@@ -1,6 +1,7 @@
 // Getting variables
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const bot = client;
 var EOMIDs = new Array();
 
 var reg = /(?:[>]+|:[A-Za-z0-9]+:)\w+/;

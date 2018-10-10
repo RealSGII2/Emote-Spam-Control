@@ -57,6 +57,9 @@ client.on("message", async message => {
           const warning = await message.reply("you're sending " + cont + " a bit too quickly! Messages weren't deleted because you can bypass.");
           setTimeout(function() {warning.delete()}, dwa);
       } else {
+	  message.author.lastMessage.delete();
+	  message.author.lastMessage.delete();
+	  message.author.lastMessage.delete();
           const warning = await message.reply("you're sending emote only messages too quickly!")
           setTimeout(function() {warning.delete()}, dwa);
       }} 

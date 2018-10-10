@@ -189,7 +189,8 @@ client.on("message", async message => {
 				}
 			});
 		  message.delete();
-		 }
+		 } else {
+			 message.reply("that is not a valid message ID! Please get a valid ID to use this command.");}
   }
 	  
   if (command === 'allowbypass') {

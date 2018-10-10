@@ -24,13 +24,17 @@ let prefix = "+";
 client.on("ready", () => {
     client.user.setGame("around with testers");
     console.log("GEH Helper has started!");
-    client.guilds.get('489624363877007360').channels.get('498640427646189597').send({embed: {
+    client.guilds.get('489624363877007360').channels.get('499422872591269918').send({embed: {
     				color: 3066993,
     				description: "\n",
     				fields: [{
-    				    name: "Recentlu Updated",
+    				    name: "Recently Updated",
    				    value: "I was recently updated! Version 0.2.4."
  		 		    },
+					 {
+						 name: "Update Notes",
+						 value: "*Nothing has been added as a note.*"
+						 }
   				],
 				}
 			});

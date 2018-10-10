@@ -314,7 +314,7 @@ client.on("message", async message => {
   .setThumbnail(avatar)
   .setTimestamp()
   .addField("Uptime", uptime, true)
-  .addField("Owner", "name", true)
+  .addField("Owner", name, true)
   .addBlankField(false)
   .addField("Users", client.users.size, true)
   .addField("Servers", client.guilds.size, true)

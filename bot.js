@@ -210,15 +210,11 @@ client.on("message", async message => {
   }
 	
   if (command === 'eval') {
-	  const Discord = require("discord.js");
-const fs = require("fs");
-
-module.exports.run = async (bot, message, args) => {
   function clean(text, token) {
     if (typeof(text) === "string") {
         return text.replace(/`/g, "`" + String.fromCharCode(8203))
             .replace(/@/g, "@" + String.fromCharCode(8203))
-            .replace(new RegExp(token, "gi"), "[ HIDDEN ]");
+            .replace(new RegExp(token, "gi"), "[ Value Hidden By External Source ]");
     } else {
         return text;
     }

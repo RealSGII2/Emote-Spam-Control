@@ -29,7 +29,7 @@ client.on("ready", () => {
     				description: "\n",
     				fields: [{
     				    name: "Recentlu Updated",
-   				    value: "I was recently updated! Version 0.2.4.
+   				    value: "I was recently updated! Version 0.2.4."
  		 		    },
   				],
 				}

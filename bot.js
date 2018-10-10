@@ -4,6 +4,8 @@ const client = new Discord.Client();
 const bot = client;
 var EOMIDs = new Array();
 
+let ver = "0.2.5";
+
 var reg = /(?:[>]+|:[A-Za-z0-9]+:)\w+/;
 
 let gcm = null; 
@@ -30,7 +32,7 @@ client.on("ready", () => {
     				description: "\n",
     				fields: [{
     				    name: "Recently Updated",
-   				    value: "I was recently updated! Version 0.2.4."
+   				    value: "I was recently updated! Version " + ver,
  		 		    },
 					 {
 						 name: "Update Notes",
@@ -165,9 +167,31 @@ client.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()
   
-  if (command === 'allowbypass' || command === 'setwarningdel' || command === 'setname') {
+  if (command === 'upd' || command === 'allowbypass' || command === 'setwarningdel' || command === 'setname') {
   if (allowedids.includes(message.author.id)) {
   
+  if (command === 'upd') {
+	  const id = args.shift();
+	  if (client.guilds.get('489624363877007360').channels.get('499422872591269918').messages.get(id)) {
+		  client.guilds.get('489624363877007360').channels.get('499422872591269918').messages.get(id).delete();
+	  client.guilds.get('489624363877007360').channels.get('499422872591269918').send({embed: {
+    				color: 3066993,
+    				description: "\n",
+    				fields: [{
+    				    name: "Recently Updated",
+   				    value: "I was recently updated! Version " + ver
+ 		 		    },
+					 {
+						 name: "Update Notes",
+						 value: args.join(" ")
+						 }
+  				],
+				}
+			});
+		  message.delete();
+		 }
+  }
+	  
   if (command === 'allowbypass') {
       const setting = args.shift();
       if (setting === 'true' || setting === 'false') {allbypass = setting; message.reply(`the option to all bypass for everyone set to **${allbypass.toString()}**!`)} else {message.reply("the settings must either be: `['true', 'false']`!")}

@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const bot = client;
 var EOMIDs = new Array();
 
-let ver = "0.2.5";
+let ver = "0.2.6.1";
 
 var reg = /(?:[>]+|:[A-Za-z0-9]+:)\w+/;
 

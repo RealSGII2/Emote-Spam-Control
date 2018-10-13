@@ -24,6 +24,13 @@ const allowedroles = ['357371636539981824', '357371681985134592', '4740734332028
 let prefix = "+";
 
 // Actual coding for the bot
+client.on("guildMemberRemove", member => {
+  const guild = member.guild;
+  if (guild.id === '357367795341590528') {
+    guild.channels.get('1').bulkDelete()
+  }
+})
+
 client.on("ready", () => {
     client.user.setGame("around with testers");
     console.log("GEH Helper has started!");
@@ -52,13 +59,15 @@ client.on("guildMemberAdd", async member => {
 client.on("message", async message => {
   const cont = message.content;
   if (reg.test(cont)) {
-      if (EOMIDs[message.author.id] === 2) {
+      if (EOMIDs[message.author.id] <= 2) {
       if (message.member.roles.has(357371636539981824) || message.member.roles.has(357371681985134592) || message.member.roles.has(474073433202884618) || message.member.roles.has(357610506946609153) || message.member.roles.has(459102161310318632) || allbypass === true) {
           const warning = await message.reply("you're sending " + cont + " a bit too quickly! Messages weren't deleted because you can bypass.");
           setTimeout(function() {warning.delete()}, dwa);
       } else {
-	  message.author.lastMessage.delete();
-	  message.author.lastMessage.delete();
+	  if (EOMIDs[message.author.id] === 2) message.author.lastMessage.delete();
+	  setTimeout(function() {console.log("hi")}, 500);
+	  if (EOMIDs[message.author.id] === 2) message.author.lastMessage.delete();
+	  setTimeout(function() {console.log("hi")}, 500);
 	  message.author.lastMessage.delete();
           const warning = await message.reply("you're sending emote only messages too quickly!")
           setTimeout(function() {warning.delete()}, dwa);

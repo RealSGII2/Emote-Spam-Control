@@ -205,13 +205,14 @@ client.on("message", async message => {
     				description: "\n",
     				fields: [{
     				    name: "Regular Expression Test",
-   				    value: "❔ What should the **RegEx pattern** be? \n\nState your answer to continue. \nSay **cancel** to cancel."
+   				    value: "❔ What should the **RegEx pattern** be? \n\nSay **emote** to test for emotes. \nState your answer to continue. \nSay **cancel** to cancel."
  		 		    },
   				],
 				}
 			});
       } else if (rpstage === 3) {
           rp2 = cont;
+	  if (cont === "Emote" || cont === "emote") rp2 = reg;
           message.channel.send({embed: {
     				color: 3066993,
     				description: "\n",

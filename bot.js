@@ -97,7 +97,7 @@ client.on("message", async message => {
           promptopen = true;
           promptid = message.author.id;
       } else {
-	  message.channel.send("You're already in an active prompt!")
+	  message.channel.send(config.prompt_active_err)
       }
   }
 	
@@ -106,7 +106,7 @@ client.on("message", async message => {
           rpromptopen = true;
           rpromptid = message.author.id;
       } else {
-	  message.channel.send("You're already in an active prompt!")
+	  message.channel.send(config.prompt_active_err)
       }
   }
     

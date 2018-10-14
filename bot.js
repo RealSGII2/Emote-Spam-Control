@@ -327,7 +327,7 @@ client.on("message", async message => {
     				color: 3066993,
     				description: "\n",
     				fields: [{
-    				    name: "Help Page" + args[0],
+    				    name: "Help Embed",
    				    value: rep
 				},
   				],

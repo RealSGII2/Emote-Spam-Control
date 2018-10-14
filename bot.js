@@ -502,7 +502,7 @@ client.on("message", async message => {
         description: "\n",
         fields: [{
             name: "Why aren't the global emotes on here working?",
-            value: "This server does not have global emotes; we list servers that have them. If you want to donate, so we can get global emotes, send <@193979517470113792> a direct message."
+            value: "This server has no global emotes; we list servers that have global emotes in <#357372706687287301>."
           },
         ],
         footer: {

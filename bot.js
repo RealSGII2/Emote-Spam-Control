@@ -16,6 +16,12 @@ let pstage = 0;
 let p1 = "";
 let p2 = "";
 
+let rpromptopen = false;
+let rpromptid = 0;
+let rpstage = 0;
+let rp1 = "";
+let rp2 = "";
+
 // Settings
 const limit = 3; // Limit for emote only messages
 let allbypass = false;
@@ -165,6 +171,82 @@ client.on("message", async message => {
           pstage = 0;
 	  p1 = "";
 	  p2 = "";
+      }
+  }
+	
+  if (rpromptopen === true && rpromptid === message.author.id) {
+      rpstage = rpstage + 1;
+      if (cont === 'cancel' || cont === 'Cancel') {message.channel.send("Cancelled prompt."); promptopen = false; pstage = 0; promptid = 0;}
+      if (rpromptopen === false) return;
+      if (rpstage === 1) {
+	      message.channel.send({embed: {
+    				color: 3066993,
+    				description: "\n",
+    				fields: [{
+    				    name: "Submit Suggestion/ Bug",
+   				    value: "🗣 Report bugs and send suggestions with this command! Abuse of this command may lead you to getting blocked from this command. \n\nSay anything to continue. \nSay **cancel** to cancel."
+ 		 		    },
+  				],
+				}
+			});
+      } else if (rpstage === 2) {
+          message.channel.send({embed: {
+    				color: 3066993,
+    				description: "\n",
+    				fields: [{
+    				    name: "Submit Suggestion/ Bug",
+   				    value: "❔ What should the **title** of your submission be? \n\nState your answer to continue. \nSay **cancel** to cancel."
+ 		 		    },
+  				],
+				}
+			});
+      } else if (rpstage === 3) {
+          rp1 = cont;
+          message.channel.send({embed: {
+    				color: 3066993,
+    				description: "\n",
+    				fields: [{
+    				    name: "Submit Suggestion/ Bug",
+   				    value: "❔ What should the **description** be? \n\nState your answer to continue. \nSay **cancel** to cancel."
+ 		 		    },
+  				],
+				}
+			});
+      } else if (pstage === 4) {
+	      rp2 = cont
+	      message.channel.send({embed: {
+    				color: 3066993,
+    				description: "\n",
+    				fields: [{
+    				    name: "Submit Suggestion/ Bug",
+   				    value: "Your submission has been sent. \n\nPreview:"
+ 		 		    },
+					 {
+						 name: p1,
+						 value: p2
+						 }
+  				],
+				}
+			});
+	      client.guilds.get('489624363877007360').channels.get('498640427646189597').send({embed: {
+    				color: 3066993,
+    				description: "\n",
+    				fields: [{
+    				    name: "Submit Suggestion/ Bug",
+   				    value: "Sent by " + message.author.tag
+ 		 		    },
+					 {
+						 name: p1,
+						 value: p2
+						 }
+  				],
+				}
+			});
+          rpromptopen = false;
+          rpromptid = 0;
+          rpstage = 0;
+	  rp1 = "";
+	  rp2 = "";
       }
   }
     

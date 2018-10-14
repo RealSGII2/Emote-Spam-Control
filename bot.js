@@ -314,14 +314,21 @@ client.on("message", async message => {
   
   if (command === 'count') {message.channel.send(`This guild has **${message.guild.members.size}** users.`)}
 	
+  if (command === 'invite') {
+	 message.channel.createInvite().then(invite => message.channel.send("Looking to invite me? Sorry, but I am a private bot! However, if you would like an invite to this guild, here is one:" + invite.code)
+	
   if (command === 'help') {
+		 let rep = "";
+		 if (args[0] === "1") rep = "`+sub` Submit a bug or suggestion. \n`+help` Shows this menu. \n`+ping` Shows the bot's ping. \n`+stats` Views stats. \n`+tag <name | all>` Uses Global Emote Hunter's tag system and sends them. \n`+mentionable <role>` Changes a role's mentionable state. \n`+mpadd <user>` Adds a user to the list who can use the mentionable command. \n`+rtest` ReGex test.";
+		 if (args[0] === "2") rep = "`+invite` Information on invites.";
+		 if (args[0] === "") rep = "Help command. You need to give me a page number, else I can't give you any commands! Say `!help <page 1 - 2>` for a page, like this: `!help 1`."
 	  message.channel.send({embed: {
     				color: 3066993,
     				description: "\n",
     				fields: [{
-    				    name: "Help",
-   				    value: "`+sub` Submit a bug or suggestion. \n`+help` Shows this menu. \n`+ping` Shows the bot's ping. \n`+stats` Views stats. \n`+tag <name | all>` Uses Global Emote Hunter's tag system and sends them. \n`+mentionable <role>` Changes a role's mentionable state. \n`+mpadd <user>` Adds a user to the list who can use the mentionable command."
- 		 		    },
+    				    name: "Help Page" + args[0],
+   				    value: rep
+				},
   				],
 				}
 			});
@@ -405,6 +412,7 @@ client.on("message", async message => {
   .addField("Uptime", uptime, true)
   .addField("Owner", name, true)
   .addBlankField(false)
+  .addField("Version", ver, true)
   .addField("Users", client.users.size, true)
   .addField("Servers", client.guilds.size, true)
 

@@ -315,7 +315,7 @@ client.on("message", async message => {
   if (command === 'count') {message.channel.send(`This guild has **${message.guild.members.size}** users.`)}
 	
   if (command === 'invite') {
-	 message.channel.createInvite().then(invite => message.channel.send("Looking to invite me? Sorry, but I am a private bot! However, if you would like an invite to this guild, here is one:" + invite.code))
+	 message.channel.createInvite().then(invite => message.channel.send("Looking to invite me? Sorry, but I am a private bot! However, if you would like an invite to this guild, here is one: https://discord.gg/" + invite.code))
   }
 	
   if (command === 'help') {

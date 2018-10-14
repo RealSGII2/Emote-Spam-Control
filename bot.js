@@ -7,7 +7,7 @@ const config = require('./config.json');
 
 var EOMIDs = new Array();
 
-let ver config.version;
+let ver = config.version;
 
 var reg = /(?:[>]+|:[A-Za-z0-9]+:)\w+/;
 

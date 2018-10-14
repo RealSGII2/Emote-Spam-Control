@@ -331,7 +331,7 @@ client.on("message", async message => {
    				    value: rep
 				},
   				],
-		  footer: {text: "Viewing page " + args[0]
+		  footer: {text: "Viewing page " + args[0]}
 				}
 			});
   }

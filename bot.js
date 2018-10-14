@@ -318,6 +318,8 @@ client.on("message", async message => {
 	 message.channel.createInvite().then(invite => message.channel.send("Looking to invite me? Sorry, but I am a private bot! However, if you would like an invite to this guild, here is one: https://discord.gg/" + invite.code))
   }
 	
+  if (command === 'ban') { message.channel.send("Like I'm banning " + args.join(" ")) }
+	
   if (command === 'help') {
 	         let pg = args[0];
 		 let rep = "Help command. You need to give me a page number, else I can't give you any commands! Say `!help <page 1 - 2>` for a page, like this: `!help 1`.";

@@ -212,7 +212,7 @@ client.on("message", async message => {
 			});
       } else if (rpstage === 3) {
           rp2 = cont;
-	  if (cont === "Emote" || cont === "emote") rp2 = reg;
+	  if (cont === "Emote" || cont === "emote") rp2 = "(?:[>]+|:[A-Za-z0-9]+:)\w+";
           message.channel.send({embed: {
     				color: 3066993,
     				description: "\n",

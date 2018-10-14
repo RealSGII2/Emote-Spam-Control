@@ -97,6 +97,15 @@ client.on("message", async message => {
 	  message.channel.send("You're already in an active prompt!")
       }
   }
+	
+  if (cont === prefix + 'rtest') {
+      if (rpromptopen === false && rpromptid !== message.author.id) {
+          rpromptopen = true;
+          rpromptid = message.author.id;
+      } else {
+	  message.channel.send("You're already in an active prompt!")
+      }
+  }
     
   if (promptopen === true && promptid === message.author.id) {
       pstage = pstage + 1;

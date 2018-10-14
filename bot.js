@@ -179,7 +179,7 @@ client.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()
   
-  if (command === 'upd' || command === 'allowbypass' || command === 'setwarningdel' || command === 'setname') {
+  if (command === 'upd' || command === 'allowbypass' || command === 'setwarningdel' || command === 'setname' || command === 'clearcount') {
   if (allowedids.includes(message.author.id)) {
   
   if (command === 'upd') {

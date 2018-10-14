@@ -58,7 +58,7 @@ client.on("guildMemberAdd", async member => {
 
 client.on("message", async message => {
   const cont = message.content;
-  if (reg.test(cont)) {
+  /*if (reg.test(cont)) {
       if (EOMIDs[message.author.id] <= 2) {
       if (message.member.roles.has(357371636539981824) || message.member.roles.has(357371681985134592) || message.member.roles.has(474073433202884618) || message.member.roles.has(357610506946609153) || message.member.roles.has(459102161310318632) || allbypass === true) {
           const warning = await message.reply("you're sending " + cont + " a bit too quickly! Messages weren't deleted because you can bypass.");
@@ -75,7 +75,7 @@ client.on("message", async message => {
 	  const count = EOMIDs[message.author.id] || 0
 	  EOMIDs[message.author.id] = count + 1;
 	  setTimeout(function() {EOMIDs[message.author.id] = count - 1;}, 12000)
-  }
+  } */
     
     
     

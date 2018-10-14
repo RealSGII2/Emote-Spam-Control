@@ -27,7 +27,7 @@ let prefix = "+";
 client.on("guildMemberRemove", member => {
   const guild = member.guild;
   if (guild.id === '357367795341590528') {
-    guild.channels.get('1').bulkDelete()
+    //guild.channels.get('1').bulkDelete()
   }
 })
 
@@ -179,9 +179,13 @@ client.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase()
   
-  if (command === 'upd' || command === 'allowbypass' || command === 'setwarningdel' || command === 'setname' || command === 'clearcount') {
+  if (command === 'upd' || command === 'allowbypass' || command === 'setwarningdel' || command === 'setname' || command === 'clearcount' || command === 'setnick') {
   if (allowedids.includes(message.author.id)) {
   
+  if (command === 'setnick') {
+	  message.guild.members.get(client.user.id).setNickname(args.join(" "));
+  }
+	  
   if (command === 'clearcount') {
 	  let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)

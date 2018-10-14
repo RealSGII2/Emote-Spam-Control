@@ -182,6 +182,14 @@ client.on("message", async message => {
   if (command === 'upd' || command === 'allowbypass' || command === 'setwarningdel' || command === 'setname' || command === 'clearcount') {
   if (allowedids.includes(message.author.id)) {
   
+  if (command === 'clearcount') {
+	  let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+    if(!member)
+      return message.reply("please mention a valid member of this server!");
+	  EOMIDs[member.id] = 0;
+	  message.reply(`${member.tag}'s count has been cleared!`);
+  }
+	  
   if (command === 'upd') {
 	  const id = args.shift();
 	  if (client.guilds.get('489624363877007360').channels.get('499422872591269918').messages.get(id)) {
@@ -348,8 +356,9 @@ client.on("message", async message => {
   
   if (command === 'mpadd') {
 	  if (menallowedid.includes(message.author.id)) {
-		  let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-		  if (!wUser) return message.reply("that member can't be found!");
+		  let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+    if(!member)
+      return message.reply("please mention a valid member of this server!");
 		  message.reply(`${wUser.tag} has been added.`);
 		  client.guilds.get('489624363877007360').channels.get('498627673413779476').send(`Add ${wUser.tag} (${wUser.id}) to menallowedid!`);
 		  menallowedid.push(wUser.id);

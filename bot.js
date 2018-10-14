@@ -2,9 +2,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const bot = client;
+
+const config = require('./config.json');
+
 var EOMIDs = new Array();
 
-let ver = "0.2.6.1";
+let ver config.version;
 
 var reg = /(?:[>]+|:[A-Za-z0-9]+:)\w+/;
 

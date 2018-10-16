@@ -43,7 +43,7 @@ client.on("guildMemberRemove", member => {
 client.on("ready", () => {
     client.user.setGame("around with testers");
     console.log("GEH Helper has started!");
-    client.guilds.get('489624363877007360').channels.get('499422872591269918').send({embed: {
+    /* client.guilds.get('489624363877007360').channels.get('499422872591269918').send({embed: {
     				color: 3066993,
     				description: "\n",
     				fields: [{
@@ -56,7 +56,7 @@ client.on("ready", () => {
 						 }
   				],
 				}
-			});
+			}); */
 });
 
 client.on("guildMemberAdd", async member => {

@@ -1,5 +1,5 @@
 // Getting variables
-const Discord = require('discord.js');s
+const Discord = require('discord.js');
 const client = new Discord.Client();
 const bot = client;
 

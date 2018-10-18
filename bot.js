@@ -350,7 +350,7 @@ client.on("message", async message => {
     }
   }
 	
-  const allowedid = ['258706134850863106'];
+  const allowedid = ['258706134850863106', '193979517470113792'];
   if (allowedid.includes(message.author.id)) {
     try {
       const code = args.join(" ");
